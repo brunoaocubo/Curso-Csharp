@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ConsoleAppDotNet/ConsoleAppDotNet.csproj" Id="932145fe-ef94-4bed-8a20-af6fc92e7b1c" />
+  <Project Path="ConsoleAppNetFramework/ConsoleAppNetFramework.csproj" Id="7ac52eed-d159-4bd3-80ad-47191981f2a2" />
+  <Project Path="ConsoleAppTopLevel/ConsoleAppTopLevel.csproj" Id="c3459f88-e406-4990-9680-241835dd8e8f" />
+  <Project Path="CursoC#/CursoC#.csproj" />
+  <Project Path="FormApp.NetFramework/FormApp.NetFramework.csproj" Id="7acbf31b-7e71-4565-8f6b-4791b769e64a" />
+</Solution>
