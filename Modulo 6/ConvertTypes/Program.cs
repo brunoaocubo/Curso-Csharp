@@ -36,7 +36,7 @@ namespace ConvertTypes
 
             /*Para atribuir uma variavel que possui um tamanho máximo maior, é preciso de maneira explicita informar o tipo que deseja. 
              * Caso o valor ainda assim seja maior, ele não impedirá de transformar, porém você terá perda de dados.
-            */
+            
 
             ushort ushort2 = 500;
             byte byte2 = (byte)ushort2; //Perda de dados. O valor é maior do que o espaço disponível.
@@ -45,10 +45,36 @@ namespace ConvertTypes
             float myFloat = (float)myD;
 
             char letter = (char)97;
-
+            */
             #endregion
 
-            Console.WriteLine(letter);
+            #region METHOD PARSE
+            /*
+             * O método .Parse() é uma forma de transformar string em tipos numericos.
+
+            string txtNumber = "2000";
+            int number = int.Parse(txtNumber);
+
+            byte numByte = byte.Parse("120");
+
+            double numDouble = double.Parse("12365957,99"); // Em string o valor de numeros flutuantes exige a virgula (,) e não (.).
+
+            float numFloat = float.Parse("457,85");
+            */
+            #endregion
+
+            #region CLASS CONVERT
+
+            int charToNumber = Convert.ToInt32('C');
+
+            char numberToChar = Convert.ToChar(97);
+
+            bool numberToBool = Convert.ToBoolean(9);
+
+            string boolToString = Convert.ToString(false);
+            #endregion
+            Console.WriteLine(boolToString);
+            
         }
     }
 }
