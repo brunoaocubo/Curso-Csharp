@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MathArithmeric/MathArithmeric.csproj" />
+  <Project Path="Operartors/Operartors.csproj" />
+  <Project Path="OperatorPrecedence/OperatorPrecedence.csproj" />
+</Solution>
