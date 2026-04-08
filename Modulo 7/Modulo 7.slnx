@@ -1,5 +1,6 @@
 <Solution>
-  <Project Path="MathArithmeric/MathArithmeric.csproj" />
-  <Project Path="Operartors/Operartors.csproj" />
-  <Project Path="OperatorPrecedence/OperatorPrecedence.csproj" />
+  <Project Path="MathArithmeric/MathArithmeric.csproj" Id="871c86d0-8ab7-42da-afb8-0fe3f4c5b753" />
+  <Project Path="Operartors/Operartors.csproj" Id="03c33af0-3fc4-4d18-b9d8-25fb8276facf" />
+  <Project Path="OperatorPrecedence/OperatorPrecedence.csproj" Id="0ae99889-14b1-4318-a2ca-dacb16b186b2" />
+  <Project Path="TemperatureConverter/TemperatureConverter.csproj" Id="e1b0c8a3-c932-41e0-8637-aa460769ed46" />
 </Solution>
