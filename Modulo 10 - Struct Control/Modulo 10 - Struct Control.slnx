@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="Calculator/Calculator.csproj" />
-  <Project Path="Switch/Switch.csproj" />
+  <Project Path="Calculator/Calculator.csproj" Id="d1da8a97-e6df-4fa9-bb9e-bfad0d79a335" />
+  <Project Path="Switch/Switch.csproj" Id="013d3ebd-6b6d-4d69-a7b8-e7af6cebb3be" />
 </Solution>

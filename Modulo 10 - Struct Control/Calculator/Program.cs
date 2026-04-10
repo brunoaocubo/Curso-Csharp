@@ -20,24 +20,66 @@ namespace Calculator
 
         static void Main(string[] args)
         {
-            double sum, sub, multi, div, restdiv, potency;
-
-            INIT:
+        INIT:
+            Console.Clear();
             Console.WriteLine("### CALCULADORA! ###\n");
-            Console.WriteLine("Selecione uma das operações abaixo: ");
+            Console.WriteLine("--- Lista de Operações ---");
             Console.WriteLine($"({((int)options.sum)})Adição\n({(int)options.sub})Subtração\n({(int)options.multi})Multiplicação\n({(int)options.div})Divisão\n({(int)options.restdiv})Resto da Divisão\n({(int)options.potency})Potenciação\n");
-            
+            Console.Write("Selecione uma das opções acima: ");
+
             int option = int.Parse(Console.ReadLine());
 
-            switch (option)
+            if(option < 1 || option > 6)
             {
-                default:
-                    goto INIT;
-                case 1:
-
-                    break;
+                Console.WriteLine("Erro: Operação inválida\n");
+                goto INIT;
             }
 
+            Calculator(option);
+
+            void Calculator(int opt)
+            {
+                double result = 0;
+                Console.Write("\nDigite o primeiro valor: ");
+                double value1 = double.Parse(Console.ReadLine());
+                Console.Write("Digite o segundo valor: ");
+                double value2 = double.Parse(Console.ReadLine());
+
+                switch (opt)
+                {
+                    default:
+                        break;
+                    case 1:
+                        result = value1 + value2;
+                        break;
+                    case 2:
+                        result = value1 - value2;
+                        break;
+                    case 3:
+                        result = value1 * value2;
+                        break;
+                    case 4:
+                        result = value1 / value2;
+                        break;
+                    case 5:
+                        result = value1 % value2;
+                        break;
+                    case 6:
+                        result = Math.Pow(value1, value2);
+                        break;
+                }
+
+                Console.WriteLine($"\nResultado: {result}");
+            }
+
+            Console.Write("\nDeseja voltar para o inicio? (s/n): ");
+            char choose = char.Parse(Console.ReadLine());
+
+            if (choose == 's' || choose == 'S') { goto INIT; }
+            else {
+                Console.Write("Aperte qualquer tecla para sair...");
+                Console.ReadKey(); 
+            }
         }
     }
 }
