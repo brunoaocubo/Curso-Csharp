@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ClassesAndObjects/ClassesAndObjects.csproj" Id="cd8148d9-bded-440e-821d-9e4b06f41264" />
+  <Project Path="Delegates/Delegates.csproj" Id="9a429a31-f172-4c1e-9122-84645ea613f7" />
+  <Project Path="ThisMethod/ThisMethod.csproj" Id="8d075c78-1501-408d-8568-f6320d6de8dd" />
+</Solution>
