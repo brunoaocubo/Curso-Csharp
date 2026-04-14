@@ -6,26 +6,9 @@ using System.Threading.Tasks;
 
 namespace Inheritance
 {
-    internal class Car:Vehicle
+    internal class Car : Vehicle
     {
         private int _maxSpeed;
-
-        public string Color { 
-            get { return _color; } 
-            set 
-            {
-                _color = value;
-            } 
-        }
-
-        public string Brand
-        {
-            get { return _brand; }
-            set
-            {
-                _brand = value;
-            }
-        }
 
         public int MaxSpeed
         {
@@ -51,6 +34,11 @@ namespace Inheritance
         public override void Accelerate()
         {
             Console.WriteLine("Acelerou o carro!");
+        }
+
+        public override void Stop()
+        {
+            Console.WriteLine("Parou o carro!");
         }
     }
 }

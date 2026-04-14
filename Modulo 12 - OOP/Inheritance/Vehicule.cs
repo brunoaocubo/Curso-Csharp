@@ -8,13 +8,10 @@ namespace Inheritance
 {
     abstract class Vehicle
     {
-        protected string _color;
-        protected string _brand;
+        public string _color;
+        public string _brand;
 
         public abstract void Accelerate();
-
-        public void Stop() {
-            Console.WriteLine("Parou!");
-        }
+        public abstract void Stop();
     }
 }
