@@ -4,6 +4,7 @@
   <Project Path="Delegates/Delegates.csproj" Id="9a429a31-f172-4c1e-9122-84645ea613f7" />
   <Project Path="Encapsulate/Encapsulate.csproj" Id="f35b795b-ee32-4746-83c1-7a792330609b" />
   <Project Path="Inheritance/Inheritance.csproj" Id="b5692889-f67d-4273-a717-d54bc7383c60" />
+  <Project Path="Modifiers/Modifiers.csproj" Id="f983d12a-6aa7-414e-ac8f-d93ed0ed56a2" />
   <Project Path="Properties/Properties.csproj" Id="8e7c9fef-3ffa-439a-aaff-16847e1ecb8f" />
   <Project Path="Statics/Statics.csproj" Id="d91cd78a-7cec-423c-bd4d-271ecdf4b12c" />
   <Project Path="ThisMethod/ThisMethod.csproj" Id="8d075c78-1501-408d-8568-f6320d6de8dd" />
