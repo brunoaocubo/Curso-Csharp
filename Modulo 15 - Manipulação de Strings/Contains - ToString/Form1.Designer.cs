@@ -1,0 +1,75 @@
+﻿namespace StringManipulation
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.textResult = new System.Windows.Forms.Label();
+            this.btnExecute = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // textResult
+            // 
+            this.textResult.AutoSize = true;
+            this.textResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textResult.Location = new System.Drawing.Point(182, 151);
+            this.textResult.Name = "textResult";
+            this.textResult.Size = new System.Drawing.Size(64, 25);
+            this.textResult.TabIndex = 0;
+            this.textResult.Text = "label1";
+            // 
+            // btnExecute
+            // 
+            this.btnExecute.Location = new System.Drawing.Point(147, 273);
+            this.btnExecute.Name = "btnExecute";
+            this.btnExecute.Size = new System.Drawing.Size(154, 63);
+            this.btnExecute.TabIndex = 1;
+            this.btnExecute.Text = "Executar";
+            this.btnExecute.UseVisualStyleBackColor = true;
+            this.btnExecute.Click += new System.EventHandler(this.btnExecute_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExecute);
+            this.Controls.Add(this.textResult);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label textResult;
+        private System.Windows.Forms.Button btnExecute;
+    }
+}
+
