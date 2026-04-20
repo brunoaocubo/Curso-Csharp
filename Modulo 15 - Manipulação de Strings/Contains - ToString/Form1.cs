@@ -48,7 +48,27 @@ namespace StringManipulation
             */
             #endregion
 
+            #region INDEXOF / LASTINDEXOF
+            /*
+            string name = "Bruno Montenegro";
+            
+            //Procura a primeira ocorrência
+            textResult.Text = "indice: " + name.IndexOf("r");
 
+            //Procura a primeira ocorrência a partir de um ponto de inicio diferente, 4.
+            textResult.Text = "indice: " + name.IndexOf("r", 4);
+
+            //Procura a primeira ocorrência a partir de um ponto de inicio diferente, 4, e que percorra apenas mais algumas casas, 5.
+            textResult.Text = "indice: " + name.IndexOf("r", 4, 5);*/
+
+            //LAST
+            /*
+            //Procura a última ocorrência...
+            //textResult.Text = "indice: " + name.LastIndexOf("o");
+
+            textResult.Text = "indice: " + name.LastIndexOf("Montenegro");
+            */
+            #endregion
         }
     }
 }
