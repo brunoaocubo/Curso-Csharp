@@ -38,6 +38,17 @@ namespace StringManipulation
             textResult.Text = num.ToString(); 
             */
             #endregion
+
+            #region TOUPPER/TOLOWER
+            /*
+            string name = "Bruno Montenegro";
+
+            //textResult.Text = name.ToUpper();
+            textResult.Text = name.ToLower();
+            */
+            #endregion
+
+
         }
     }
 }
