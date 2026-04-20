@@ -32,14 +32,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.bornDate = new System.Windows.Forms.DateTimePicker();
+            this.civilState = new System.Windows.Forms.ComboBox();
+            this.telNumber = new System.Windows.Forms.MaskedTextBox();
+            this.checkHouse = new System.Windows.Forms.CheckBox();
+            this.checkVehicle = new System.Windows.Forms.CheckBox();
+            this.F = new System.Windows.Forms.RadioButton();
+            this.M = new System.Windows.Forms.RadioButton();
+            this.O = new System.Windows.Forms.RadioButton();
+            this.listRegisters = new System.Windows.Forms.ListBox();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_name
@@ -106,16 +116,16 @@
             this.label3.Text = "Telefone";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // name
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(182, 5);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.textBox1.MinimumSize = new System.Drawing.Size(200, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(519, 26);
-            this.textBox1.TabIndex = 3;
+            this.name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.name.Location = new System.Drawing.Point(182, 5);
+            this.name.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.name.MinimumSize = new System.Drawing.Size(200, 4);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(519, 26);
+            this.name.TabIndex = 3;
             // 
             // tableLayoutPanel1
             // 
@@ -123,14 +133,14 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.42614F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.57386F));
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.bornDate, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lb_name, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.maskedTextBox1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.name, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.civilState, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.telNumber, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 13);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -141,72 +151,173 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(704, 146);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // dateTimePicker1
+            // bornDate
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(182, 41);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(519, 26);
-            this.dateTimePicker1.TabIndex = 5;
+            this.bornDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.bornDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bornDate.Location = new System.Drawing.Point(182, 41);
+            this.bornDate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.bornDate.MaxDate = new System.DateTime(2199, 12, 31, 0, 0, 0, 0);
+            this.bornDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.bornDate.Name = "bornDate";
+            this.bornDate.Size = new System.Drawing.Size(519, 26);
+            this.bornDate.TabIndex = 5;
             // 
-            // comboBox1
+            // civilState
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Solteiro",
-            "Casado",
-            "Divorciado",
-            "União Estável"});
-            this.comboBox1.Location = new System.Drawing.Point(182, 77);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(385, 28);
-            this.comboBox1.TabIndex = 7;
+            this.civilState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.civilState.FormattingEnabled = true;
+            this.civilState.Location = new System.Drawing.Point(182, 77);
+            this.civilState.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.civilState.Name = "civilState";
+            this.civilState.Size = new System.Drawing.Size(385, 28);
+            this.civilState.TabIndex = 7;
             // 
-            // maskedTextBox1
+            // telNumber
             // 
-            this.maskedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskedTextBox1.Location = new System.Drawing.Point(182, 115);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.maskedTextBox1.Mask = "(99) 00000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(385, 26);
-            this.maskedTextBox1.TabIndex = 5;
+            this.telNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.telNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.telNumber.Location = new System.Drawing.Point(182, 115);
+            this.telNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.telNumber.Mask = "(99) 00000-0000";
+            this.telNumber.Name = "telNumber";
+            this.telNumber.Size = new System.Drawing.Size(385, 26);
+            this.telNumber.TabIndex = 5;
+            this.telNumber.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
-            // checkBox1
+            // checkHouse
             // 
-            this.checkBox1.Location = new System.Drawing.Point(190, 180);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(123, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Possui Casa Própria";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkHouse.Location = new System.Drawing.Point(190, 180);
+            this.checkHouse.Name = "checkHouse";
+            this.checkHouse.Size = new System.Drawing.Size(123, 17);
+            this.checkHouse.TabIndex = 0;
+            this.checkHouse.Text = "Possui Casa Própria";
+            this.checkHouse.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkVehicle
             // 
-            this.checkBox2.Location = new System.Drawing.Point(190, 213);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(123, 17);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Possui Veículo";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkVehicle.Location = new System.Drawing.Point(190, 203);
+            this.checkVehicle.Name = "checkVehicle";
+            this.checkVehicle.Size = new System.Drawing.Size(123, 17);
+            this.checkVehicle.TabIndex = 5;
+            this.checkVehicle.Text = "Possui Veículo";
+            this.checkVehicle.UseVisualStyleBackColor = true;
+            // 
+            // F
+            // 
+            this.F.AutoSize = true;
+            this.F.Location = new System.Drawing.Point(0, 19);
+            this.F.Name = "F";
+            this.F.Size = new System.Drawing.Size(67, 17);
+            this.F.TabIndex = 6;
+            this.F.TabStop = true;
+            this.F.Text = "Feminino";
+            this.F.UseVisualStyleBackColor = true;
+            // 
+            // M
+            // 
+            this.M.AutoSize = true;
+            this.M.Location = new System.Drawing.Point(122, 19);
+            this.M.Name = "M";
+            this.M.Size = new System.Drawing.Size(73, 17);
+            this.M.TabIndex = 7;
+            this.M.TabStop = true;
+            this.M.Text = "Masculino";
+            this.M.UseVisualStyleBackColor = true;
+            // 
+            // O
+            // 
+            this.O.AutoSize = true;
+            this.O.Location = new System.Drawing.Point(0, 44);
+            this.O.Name = "O";
+            this.O.Size = new System.Drawing.Size(51, 17);
+            this.O.TabIndex = 8;
+            this.O.TabStop = true;
+            this.O.Text = "Outro";
+            this.O.UseVisualStyleBackColor = true;
+            // 
+            // listRegisters
+            // 
+            this.listRegisters.FormattingEnabled = true;
+            this.listRegisters.Location = new System.Drawing.Point(13, 394);
+            this.listRegisters.Name = "listRegisters";
+            this.listRegisters.Size = new System.Drawing.Size(704, 134);
+            this.listRegisters.TabIndex = 9;
+            this.listRegisters.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listRegisters_MouseDoubleClick);
+            // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.O);
+            this.groupBox.Controls.Add(this.M);
+            this.groupBox.Controls.Add(this.F);
+            this.groupBox.Location = new System.Drawing.Point(190, 236);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(201, 67);
+            this.groupBox.TabIndex = 10;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Sexo";
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(25, 319);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(180, 69);
+            this.btnRegister.TabIndex = 11;
+            this.btnRegister.Text = "Cadastrar / Alterar";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(276, 319);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(180, 69);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "Excluir";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(527, 319);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(180, 69);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "Limpar";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // update
+            // 
+            this.update.Location = new System.Drawing.Point(632, 290);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(75, 23);
+            this.update.TabIndex = 14;
+            this.update.Text = "Atualizar";
+            this.update.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 450);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(729, 540);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.groupBox);
+            this.Controls.Add(this.listRegisters);
+            this.Controls.Add(this.checkVehicle);
+            this.Controls.Add(this.checkHouse);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,13 +329,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.DateTimePicker bornDate;
+        private System.Windows.Forms.ComboBox civilState;
+        private System.Windows.Forms.MaskedTextBox telNumber;
+        private System.Windows.Forms.CheckBox checkHouse;
+        private System.Windows.Forms.CheckBox checkVehicle;
+        private System.Windows.Forms.RadioButton F;
+        private System.Windows.Forms.RadioButton M;
+        private System.Windows.Forms.RadioButton O;
+        private System.Windows.Forms.ListBox listRegisters;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button update;
     }
 }
 
