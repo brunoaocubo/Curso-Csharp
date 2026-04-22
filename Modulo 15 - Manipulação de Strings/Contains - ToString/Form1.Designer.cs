@@ -36,7 +36,7 @@
             // 
             this.textResult.AutoSize = true;
             this.textResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textResult.Location = new System.Drawing.Point(182, 151);
+            this.textResult.Location = new System.Drawing.Point(12, 9);
             this.textResult.Name = "textResult";
             this.textResult.Size = new System.Drawing.Size(64, 25);
             this.textResult.TabIndex = 0;

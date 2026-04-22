@@ -78,6 +78,30 @@ namespace StringManipulation
             textResult.Text = finalName;
             */
             #endregion
+
+            #region LENGTH / SUBSTRING
+            /*
+            string name = "Bruno Afonso";
+            /*int size = name.Length;
+            //textResult.Text = $"O nome {name} possui um tamanho de: {size}";
+
+            textResult.Text = "";
+            for (int i = 0; i < name.Length; i++)
+            {
+                // Percorre todo o string e em cada char adiciona no texto e pula uma linha. Nome na vertical.
+                textResult.Text += $"{name[i]}\n"; 
+            }
+
+
+            // Busca uma parte do nome a partir de um indice com ,ou, sem limite de caracteres.
+            string partialName = name.Substring(6, 5);
+            //textResult.Text = partialName;
+
+            // Busca a partir do espaço vazio da string para frente com, ou, sem limite de caracteres.
+            string emptyName = name.Substring(name.IndexOf(" "), 3);
+            textResult.Text = emptyName;
+            */
+            #endregion
         }
     }
 }
