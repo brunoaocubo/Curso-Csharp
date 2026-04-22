@@ -191,6 +191,26 @@ namespace StringManipulation
             textResult.Text += $"Resultado de Equals(), com Substring(): {name4.Equals(name5.Substring(0, name4.Length), StringComparison.OrdinalIgnoreCase)}";
             */
             #endregion
+
+            #region FORMAT
+            /*
+            decimal value = 5.97m;
+            int temp = 54;
+
+            // Formato para utilizar os valores declarados anteriormente.
+            //string result = String.Format("O valor é: {0:C} e a temperatura: {1}º", value, temp);
+
+            // Formato para buscar a Data e Hora atual.
+            //string result = String.Format("Data atual: {0:d}, hora atual: {0:T}", DateTime.Now);
+
+            // Shorthand + String Format
+            //string result = $"Formatação em reais com String Format e Shorthand: {value:C1}";
+            
+            string result = $"Data: {DateTime.Now:d}, horário: {DateTime.Now:T}";
+
+            textResult.Text = result;
+            */
+            #endregion
         }
     }
 }
