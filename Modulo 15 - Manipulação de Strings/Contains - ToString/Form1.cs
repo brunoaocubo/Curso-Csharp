@@ -169,6 +169,28 @@ namespace StringManipulation
             textResult.Text += ">" + trimEndMessage + "<";
             */
             #endregion
+
+            #region COMPARE TO / EQUALS
+            /*
+            textResult.Text = "";
+            string name1 = "Ana";
+            string name2 = "Laura";
+
+            string name4 = "Bruno";
+            string name5 = "bruno Afonso";
+
+
+
+            //Compara em ordem alfábetica Lexicográfica se a string vem antes, retorna um número > 0; Se vem depois retorna um número < 0, se forem iguais retorna 0.
+            textResult.Text += $"Resultado de '{name1}'.CompareTo('{name2}'): {name1.CompareTo(name2)}\n";
+
+            //Determina se os dois valores são idênticos (igualdade).
+            textResult.Text += $"Resultado de '{name4}'.Equals('{name5}'): {name4.Equals(name5)}\n";
+
+            //Determina se os dois valores são idênticos (igualdade), utilizando substring em conjunto e OrdinalIgnoreCase para ignorar case sensitive.
+            textResult.Text += $"Resultado de Equals(), com Substring(): {name4.Equals(name5.Substring(0, name4.Length), StringComparison.OrdinalIgnoreCase)}";
+            */
+            #endregion
         }
     }
 }
