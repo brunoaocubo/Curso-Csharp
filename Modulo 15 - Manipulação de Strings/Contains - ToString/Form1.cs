@@ -124,6 +124,28 @@ namespace StringManipulation
             }
             */
             #endregion
+
+            #region STARTSWITH / ENDSWITH
+            /*
+            textResult.Text = "";
+
+            string name = "Bruno Barbosa";
+            string startFind = "br";
+            string endFind = "Barbosa";
+            bool resultStart = name.StartsWith(startFind, StringComparison.CurrentCultureIgnoreCase);
+            bool resultEnd = name.EndsWith(endFind);
+
+            textResult.Text += $"O nome {name} começa com {startFind}?\nResultado: {resultStart}\n";
+            textResult.Text += $"O nome {name} termina com {endFind}?\nResultado: {resultEnd}";
+
+            /* DICAS
+            Usar InvariantCultureIgnoreCase ou OrdinalIgnoreCase: Para dados internos, como chaves de dicionário, caminhos de arquivo, marcações XML/HTML. Ajuda a evitar comportamentos inesperados em máquinas com culturas diferentes.
+            
+            Usar CurrentCultureIgnoreCase: Apenas quando a comparação precisar seguir regras gramaticais específicas da região do usuário para exibição na tela.
+
+            Ambos que possui o ...IgnoreCase, irá ignorar o case sensitive.
+            */
+            #endregion
         }
     }
 }
