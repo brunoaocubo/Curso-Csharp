@@ -69,6 +69,15 @@ namespace StringManipulation
             textResult.Text = "indice: " + name.LastIndexOf("Montenegro");
             */
             #endregion
+
+            #region INSERT / REPLACE
+            /*
+            string name = "Bruno Montenegro";
+            //string finalName = name.Insert(6, "Paulo "); //Insere uma nova string em uma posição determinada.
+            string finalName = name.Replace("Bru", "Bre"); //Substitui string ou char, por outra string ou char.
+            textResult.Text = finalName;
+            */
+            #endregion
         }
     }
 }
