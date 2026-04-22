@@ -102,6 +102,28 @@ namespace StringManipulation
             textResult.Text = emptyName;
             */
             #endregion
+
+            #region SPLIT
+            /*
+            //string names = "Bruno_+_Paulo_+_Hugo__Octavio_Sofia          Igor";
+            string names = "Bruno_Paulo_Hugo_Octavio_Sofia  Igor";
+            
+            textResult.Text = "";
+
+            // Separador de char/caractere.
+            char[] separatorChar = { ' ', '_' };
+            // Separador de string personalizado.
+            string[] separatorString = { "_+_", "__" };
+
+            //StringSplitOptions deve ser usado ao utilizar separadores string para definir se irá remover espaços vazios .RemoveEmptyEntries, ou, manter com .None.
+            string[] result = names.Split(separatorString, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string name in result)
+            {
+                textResult.Text += $"{name}\n";
+            }
+            */
+            #endregion
         }
     }
 }
