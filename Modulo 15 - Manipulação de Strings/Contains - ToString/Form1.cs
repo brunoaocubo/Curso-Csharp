@@ -146,6 +146,29 @@ namespace StringManipulation
             Ambos que possui o ...IgnoreCase, irá ignorar o case sensitive.
             */
             #endregion
+
+            #region TRIM / TRIM START / TRIM END
+            /*
+            textResult.Text = "";
+            string message = " - _  ;Olá Bruno; -   ";
+
+            char[] charToRemove = { ' ', '-', '_', ';' };
+
+            //Remover todos os espaços em branco, podendo utilizar como parametro um array de char.
+            string trimMessage = message.Trim(charToRemove);
+
+            //Remover todos os espaços em branco no começo, podendo utilizar como parametro um array de char.
+            string trimStartMessage = message.TrimStart(charToRemove);
+
+            //Remover todos os espaços em branco no final, podendo utilizar como parametro um array de char.
+            string trimEndMessage = message.TrimEnd(charToRemove);
+
+
+            textResult.Text += ">" + trimMessage + "<\n";
+            textResult.Text += ">" + trimStartMessage + "<\n";
+            textResult.Text += ">" + trimEndMessage + "<";
+            */
+            #endregion
         }
     }
 }
