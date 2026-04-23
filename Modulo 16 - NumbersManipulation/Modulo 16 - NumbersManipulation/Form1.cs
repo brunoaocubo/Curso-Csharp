@@ -35,7 +35,7 @@ namespace Modulo_16___NumbersManipulation
             */
             #endregion
 
-            #region ToString
+            #region ToString / Convert.ToString
             /*
             double num = 19.96854d;
             //Formato de string para escolher o número de casas.
@@ -50,6 +50,32 @@ namespace Modulo_16___NumbersManipulation
             txt_result.Text += myInt.ToString("C \n"); // Número em Monetário.
             txt_result.Text += Convert.ToString(myInt, 8);
             */
+            #endregion
+
+            #region MATH
+            double pi = Math.PI;
+            double constant = Math.E; // Constante Logaritma
+            double seno = Math.Sin(3);
+            double conseno = Math.Cos(3);
+            double potency = Math.Pow(2, 2); // Potência
+            double square = Math.Sqrt(64); // Raiz quadrada
+            double round = Math.Round(958.74); // Arrendonda o mais próximo
+            double integral = Math.Truncate(69.97); // Valor do inteiro
+            double floor = Math.Floor(19.32); // Obriga a arredondar para baixo
+            double ceil = Math.Ceiling(19.32); // Obriga a arredondaa para cima
+
+
+            txt_result.Text += pi + "\n"; 
+            txt_result.Text += constant + "\n";
+            txt_result.Text += seno + "\n";
+            txt_result.Text += conseno + "\n";
+            txt_result.Text += potency + "\n";
+            txt_result.Text += square + "\n";
+            txt_result.Text += round + "\n";
+            txt_result.Text += integral + "\n";
+            txt_result.Text += floor + "\n";
+            txt_result.Text += ceil + "\n";
+
             #endregion
         }
     }
