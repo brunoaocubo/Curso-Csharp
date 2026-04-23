@@ -32,8 +32,8 @@
             this.userInput = new System.Windows.Forms.TextBox();
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_submit = new System.Windows.Forms.Button();
+            this.btn_closed = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -78,23 +78,25 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Senha:";
             // 
-            // button1
+            // btn_submit
             // 
-            this.button1.Location = new System.Drawing.Point(17, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 60);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Entrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_submit.Location = new System.Drawing.Point(17, 229);
+            this.btn_submit.Name = "btn_submit";
+            this.btn_submit.Size = new System.Drawing.Size(109, 60);
+            this.btn_submit.TabIndex = 4;
+            this.btn_submit.Text = "Entrar";
+            this.btn_submit.UseVisualStyleBackColor = true;
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
-            // button2
+            // btn_closed
             // 
-            this.button2.Location = new System.Drawing.Point(178, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 60);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Limpar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_closed.Location = new System.Drawing.Point(178, 229);
+            this.btn_closed.Name = "btn_closed";
+            this.btn_closed.Size = new System.Drawing.Size(109, 60);
+            this.btn_closed.TabIndex = 5;
+            this.btn_closed.Text = "Limpar";
+            this.btn_closed.UseVisualStyleBackColor = true;
+            this.btn_closed.Click += new System.EventHandler(this.btn_closed_Click);
             // 
             // label3
             // 
@@ -111,15 +113,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 304);
+            this.ControlBox = false;
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_closed);
+            this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.passwordInput);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.userInput);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "LoginForm";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,8 +136,8 @@
         private System.Windows.Forms.TextBox userInput;
         private System.Windows.Forms.TextBox passwordInput;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_submit;
+        private System.Windows.Forms.Button btn_closed;
         private System.Windows.Forms.Label label3;
     }
 }
