@@ -46,7 +46,7 @@ namespace GenericsCollecctions
             
             namesList.Sort();
 
-            MessageBox.Show(namesList.IndexOf("Paula").ToString());
+            MessageBox.Show("A posição de Paula é: " + namesList.IndexOf("Paula").ToString());
 
             namesList.Insert(2, "Sofia");
 
@@ -56,7 +56,45 @@ namespace GenericsCollecctions
             {
                 listResult.Items.Add(item);
             }
+        }
 
+        private void btnHashSet_Click(object sender, EventArgs e)
+        {
+            listResult.Items.Clear();
+
+            /*
+             * Hashset não permite valores duplicados, se ja existe ele não irá adicionar novamente.
+             * 
+             * Hashset não permite acessar os valores atraves de indices diretamente list[1], precisa utilizar list.ElementAt(1) ou iterar sobre o hashset para obter o item.
+            */
+
+            HashSet<string> vehicles = new HashSet<string>() 
+            {
+                "Carro",
+                "Moto",
+                "Avião",
+                "Navio"
+            };
+
+            if (vehicles.Add("Navio"))
+            {
+                MessageBox.Show("Valor adicionado");
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível adicionar o valor");
+            }
+
+            MessageBox.Show(vehicles.ElementAt(1));
+
+            MessageBox.Show(vehicles.First());
+
+            MessageBox.Show(vehicles.Last());
+
+            foreach (string item in vehicles)
+            {
+                listResult.Items.Add(item);
+            }
         }
     }
 }
