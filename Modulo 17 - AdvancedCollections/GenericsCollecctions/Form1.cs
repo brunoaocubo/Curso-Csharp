@@ -142,5 +142,35 @@ namespace GenericsCollecctions
                 listResult.Items.Add(key.Key + "=" + key.Value);
             }
         }
+
+        private void btnSortedList_Click(object sender, EventArgs e)
+        {
+            listResult.Items.Clear();
+
+            //Funciona como um objeto, uma lista ordenada a-Z, 0-9.
+            SortedList<int, string> sortedList = new SortedList<int, string>()
+            {
+                {65, "Catharine Moças" },
+                {90, "Dombas" },
+                {55, "Poca-Poca" }
+            };
+
+            sortedList.Add(84, "Santanas");
+            //sortedList.Reverse();
+            //sortedList.Remove(90);
+            //sortedList.RemoveAt(0);
+            //sortedList.Count;
+            //sortedList.ContainsKey(50);
+            //sortedList.ContainsValue("Santanas");
+
+            foreach (var key in sortedList)
+            {
+                listResult.Items.Add(key);
+            }
+
+
+           // sortedList.GroupBy()
+
+        }
     }
 }
