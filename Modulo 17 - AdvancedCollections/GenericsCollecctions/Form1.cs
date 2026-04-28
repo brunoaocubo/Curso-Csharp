@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -94,6 +95,51 @@ namespace GenericsCollecctions
             foreach (string item in vehicles)
             {
                 listResult.Items.Add(item);
+            }
+        }
+
+        private void btnDictionary_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, string> students = new Dictionary<int, string>()
+            {
+                {10, "Octavia" },
+                {8, "Sophia" },
+                {9, "Paola Bracho" }
+            };
+
+            students.Add(5, "Ramuel");
+
+            if (students.ContainsKey(8))
+            {
+                MessageBox.Show("Contem");
+            }
+            else
+            {
+                MessageBox.Show("Não contém");
+            }
+
+
+            if(students.ContainsValue("Paola Bracho"))
+            {
+                MessageBox.Show("Contém a Paola");
+            }
+            else
+            {
+                MessageBox.Show("Não contém a Paola");
+            }
+
+            KeyValuePair<int, string> first = students.First();
+            MessageBox.Show($"Primeiro aluno: {first.Key}, {first.Value}");
+
+            //KeyValuePair<int, string> last = students.Last();
+            MessageBox.Show($"Último aluno: {students.Last().Key}, {students.Last().Value}");
+
+            //students.Clear();
+            students.Remove(10);
+
+            foreach (KeyValuePair<int, string> key in students)
+            {
+                listResult.Items.Add(key.Key + "=" + key.Value);
             }
         }
     }
