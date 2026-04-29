@@ -167,10 +167,29 @@ namespace GenericsCollecctions
             {
                 listResult.Items.Add(key);
             }
+        }
 
+        private void btnSortedDictionary_Click(object sender, EventArgs e)
+        {
+            SortedDictionary<int, string> sortedDictionary = new SortedDictionary<int, string>() {
+                {9090, "Pedro" },
+                {8060, "Samuel" },
+                {7042, "Sofia" }
+            };
 
-           // sortedList.GroupBy()
+            sortedDictionary.Add(8450, "Talia");
+            //sortedDictionary.Reverse();
+            sortedDictionary.Remove(9090);
+            //sortedDictionary.RemoveAt(0);
+            //sortedDictionary.Count;
+            sortedDictionary.ContainsKey(9090);
+            sortedDictionary.Add(9090, "Pedro");
+            //sortedDictionary.ContainsValue("Santanas");
 
+            foreach (KeyValuePair<int, string> key in sortedDictionary.Reverse())
+            {
+                listResult.Items.Add(key);
+            }
         }
     }
 }
