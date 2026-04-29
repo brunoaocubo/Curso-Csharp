@@ -218,5 +218,42 @@ namespace GenericsCollecctions
                 MessageBox.Show("Não será possível adicionar: \nO nome 'Otavia' já existe na lista.");
             }
         }
+
+        private void btnQueue_Click(object sender, EventArgs e)
+        {
+            //Filas que posiciona os valores em ordem de entrada.
+            Queue<string> namesQueue = new Queue<string>();
+
+            //Adiciona o valor para dentro da fila.
+            namesQueue.Enqueue("Samantha");
+            namesQueue.Enqueue("Gabriel");
+            namesQueue.Enqueue("Olavo");
+
+
+            foreach (string item in namesQueue)
+            {
+                listResult.Items.Add(item);
+            }
+
+            //listResult.Items.Clear();
+
+            //Remove o primeiro valor da fila.
+            //namesQueue.Dequeue();
+
+            while (namesQueue.Count > 0)
+            {
+                MessageBox.Show($"Quantidade de nomes na fila: {namesQueue.Count}");
+                MessageBox.Show($"Primero nome na fila: {namesQueue.Peek()}");
+                namesQueue.Dequeue();
+                listResult.Items.Clear();
+
+                foreach (string item in namesQueue)
+                {
+                    listResult.Items.Add(item);
+                }
+            }
+
+
+        }
     }
 }
