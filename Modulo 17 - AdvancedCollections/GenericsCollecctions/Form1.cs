@@ -191,5 +191,32 @@ namespace GenericsCollecctions
                 listResult.Items.Add(key);
             }
         }
+
+        private void btnSortedSet_Click(object sender, EventArgs e)
+        {
+            listResult.Items.Clear();
+
+            //Hashset com ordenação.
+            SortedSet<string> sortedSet = new SortedSet<string>()
+            {
+                "Otavia",
+                "Sofia",
+                "Paola Bracho",
+                "Daniel",
+                "Eurudio"
+            };
+
+            //Ao mostrar na tela, estarão em ordem
+            foreach (string item in sortedSet)
+            {
+                listResult.Items.Add(item);
+            }
+
+            //Por ser uma hashset, tentar adicionar um valor igual retornará False.
+            if (!sortedSet.Add("Otavia"))
+            {
+                MessageBox.Show("Não será possível adicionar: \nO nome 'Otavia' já existe na lista.");
+            }
+        }
     }
 }

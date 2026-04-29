@@ -34,6 +34,7 @@
             this.btnDictionary = new System.Windows.Forms.Button();
             this.btnSortedList = new System.Windows.Forms.Button();
             this.btnSortedDictionary = new System.Windows.Forms.Button();
+            this.btnSortedSet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnList
@@ -101,11 +102,23 @@
             this.btnSortedDictionary.UseVisualStyleBackColor = true;
             this.btnSortedDictionary.Click += new System.EventHandler(this.btnSortedDictionary_Click);
             // 
+            // btnSortedSet
+            // 
+            this.btnSortedSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnSortedSet.Location = new System.Drawing.Point(641, 252);
+            this.btnSortedSet.Name = "btnSortedSet";
+            this.btnSortedSet.Size = new System.Drawing.Size(147, 42);
+            this.btnSortedSet.TabIndex = 6;
+            this.btnSortedSet.Text = "SortedSet";
+            this.btnSortedSet.UseVisualStyleBackColor = true;
+            this.btnSortedSet.Click += new System.EventHandler(this.btnSortedSet_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSortedSet);
             this.Controls.Add(this.btnSortedDictionary);
             this.Controls.Add(this.btnSortedList);
             this.Controls.Add(this.btnDictionary);
@@ -127,6 +140,7 @@
         private System.Windows.Forms.Button btnDictionary;
         private System.Windows.Forms.Button btnSortedList;
         private System.Windows.Forms.Button btnSortedDictionary;
+        private System.Windows.Forms.Button btnSortedSet;
     }
 }
 
