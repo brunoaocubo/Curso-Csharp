@@ -281,6 +281,7 @@ namespace GenericsCollecctions
                 foreach (string item in stacksNames)
                 {
                     listResult.Items.Add(item);
+
                 }
             }
         }
