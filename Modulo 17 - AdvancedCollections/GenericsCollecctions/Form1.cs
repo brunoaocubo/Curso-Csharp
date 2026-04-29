@@ -225,7 +225,7 @@ namespace GenericsCollecctions
             Queue<string> namesQueue = new Queue<string>();
 
             //Adiciona o valor para dentro da fila.
-            namesQueue.Enqueue("Samantha");
+            namesQueue.Enqueue("Samantha"); //Primeiro valor da fila
             namesQueue.Enqueue("Gabriel");
             namesQueue.Enqueue("Olavo");
 
@@ -254,6 +254,35 @@ namespace GenericsCollecctions
             }
 
 
+        }
+
+        private void btnStack_Click(object sender, EventArgs e)
+        {
+            //Pilhas posicionam os valores seguindo o principio: primeiros são os ultimos.
+            Stack<string> stacksNames = new Stack<string>();
+
+            //Empurra o valor para o topo da pilha.
+            stacksNames.Push("Samantha"); 
+            stacksNames.Push("Gabriel");
+            stacksNames.Push("Olavo"); //Primeiro valor da pilha
+
+            foreach (string item in stacksNames)
+            {
+                listResult.Items.Add(item);
+            }
+
+            while (stacksNames.Count > 0)
+            {
+                MessageBox.Show($"Quantidade de nomes na pilha: {stacksNames.Count}");
+                MessageBox.Show($"Primero nome na pilha: {stacksNames.Peek()}");
+                stacksNames.Pop();
+                listResult.Items.Clear();
+
+                foreach (string item in stacksNames)
+                {
+                    listResult.Items.Add(item);
+                }
+            }
         }
     }
 }
