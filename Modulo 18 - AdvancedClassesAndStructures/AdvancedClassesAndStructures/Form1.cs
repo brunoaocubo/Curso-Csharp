@@ -124,5 +124,17 @@ namespace AdvancedClassesAndStructures
 
             txtResult.Text = cpu.ToString();
         }
+
+        private void btnApplication_Click(object sender, EventArgs e)
+        {
+            string companyName = Application.CompanyName;
+            string executable = Application.ExecutablePath;
+            string startupPath = Application.StartupPath;
+            string productVersion = Application.ProductVersion;
+            txtResult.Text = startupPath;
+
+            //Application.Exit();
+            Application.Restart();
+        }
     }
 }
