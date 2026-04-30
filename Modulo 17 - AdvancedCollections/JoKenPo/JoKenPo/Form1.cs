@@ -16,5 +16,30 @@ namespace JoKenPo
         {
             InitializeComponent();
         }
+
+        private void btnRock_Click(object sender, EventArgs e)
+        {
+            PlayGame(0);
+        }
+
+        private void btnPaper_Click(object sender, EventArgs e)
+        {
+            PlayGame(1);
+        }
+
+        private void btnScissors_Click(object sender, EventArgs e)
+        {
+            PlayGame(2);
+        }
+
+        private void PlayGame(int input)
+        {
+            Game game = new Game();
+            Result result = game.Play(input);
+
+            pictureUser.BackgroundImage = game.ImgUser;
+            picturePC.BackgroundImage = game.ImgPC;
+            pictureResult.BackgroundImage = game.ImgResult(result);
+        }
     }
 }
