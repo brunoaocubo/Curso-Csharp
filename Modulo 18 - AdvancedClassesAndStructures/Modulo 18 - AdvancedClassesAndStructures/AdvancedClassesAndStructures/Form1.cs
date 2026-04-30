@@ -49,5 +49,28 @@ namespace AdvancedClassesAndStructures
             TimeSpan intervalDate = date2 - date1;
             txtResult.Text = intervalDate.ToString();
         }
+
+        private void btnDateTime_Click(object sender, EventArgs e)
+        {
+            //txtResult.Text = DateTime.Now.ToString();
+            txtResult.Text = DateTime.Today.ToString();
+            txtResult.Text = DateTime.UtcNow.ToString();
+            txtResult.Text = DateTime.DaysInMonth(2024, 2).ToString();
+            txtResult.Text = DateTime.IsLeapYear(2024).ToString(); //Ano bisexto
+            txtResult.Text = DateTime.Now.ToLongDateString().ToString(); //Data longa
+            txtResult.Text = DateTime.Now.ToShortDateString().ToString(); //Data curta
+            txtResult.Text = DateTime.Now.ToLongTimeString().ToString();
+            txtResult.Text = DateTime.Now.ToUniversalTime().ToString();
+            txtResult.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            DateTime date = new DateTime(2002, 06, 15, 00, 52,33);
+            
+            txtResult.Text = date.DayOfWeek.ToString(); //Dia daquela data
+            txtResult.Text = date.DayOfYear.ToString(); //Dia daquele ano
+
+            TimeSpan timeSpan = new TimeSpan(1, 00, 00);
+            txtResult.Text = date.Add(timeSpan).ToString(); //Adicionar tempo na data a partir de um timeSpan.
+            txtResult.Text = date.AddYears(22).ToString(); //Adicionar anos na data.
+        }
     }
 }
