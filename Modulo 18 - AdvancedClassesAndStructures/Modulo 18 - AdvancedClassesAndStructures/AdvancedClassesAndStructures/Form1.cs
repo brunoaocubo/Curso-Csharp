@@ -87,5 +87,14 @@ namespace AdvancedClassesAndStructures
             txtResult.BackColor = color3;
             btnColor.BackColor = txtResult.ForeColor = color5;
         }
+
+        private void btnFont_Click(object sender, EventArgs e)
+        {
+            Font font1 = new Font("Arial", 30, FontStyle.Italic | FontStyle.Bold, GraphicsUnit.Pixel);
+            Font font2 = new Font("Comic Sans MS, sans-serif", 36, FontStyle.Italic | FontStyle.Bold, GraphicsUnit.Pixel);
+            Font font3 = new Font(FontFamily.GenericMonospace, 36, FontStyle.Regular, GraphicsUnit.Pixel);
+
+            txtResult.Font = font3;
+        }
     }
 }
