@@ -29,5 +29,25 @@ namespace AdvancedClassesAndStructures
             txtResult.Text = $"Número gerado com Random(): {myDouble}";
 
         }
+
+        private void btnTimeSpan_Click(object sender, EventArgs e)
+        {
+            //txtResult.Text = TimeSpan.FromHours(50).ToString();
+
+            TimeSpan init = new TimeSpan(2, 00, 00);
+            TimeSpan final = new TimeSpan(8, 00, 30);
+            TimeSpan interval = final - init;
+            //txtResult.Text = interval.ToString();
+            //txtResult.Text = interval.TotalHours.ToString(); //Total de Horas entre o intervalo
+
+            TimeSpan operations = init.Add(final);
+            TimeSpan operations2 = init.Subtract(final);
+            //txtResult.Text = operations.ToString();
+
+            TimeSpan date1 = TimeSpan.FromDays(10);
+            TimeSpan date2 = TimeSpan.FromDays(120);
+            TimeSpan intervalDate = date2 - date1;
+            txtResult.Text = intervalDate.ToString();
+        }
     }
 }
