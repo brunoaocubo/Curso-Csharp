@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="AdvancedClassesAndStructures/AdvancedClassesAndStructures.csproj" Id="a42cf696-8013-41eb-8144-178c41c37971" />
+  <Project Path="ThreadConsole/ThreadConsole.csproj" Id="cdab6992-aef4-486a-8a57-2bbf7592bf56" />
 </Solution>
