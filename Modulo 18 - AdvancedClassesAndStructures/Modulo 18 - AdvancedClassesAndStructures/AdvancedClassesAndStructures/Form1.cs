@@ -72,5 +72,20 @@ namespace AdvancedClassesAndStructures
             txtResult.Text = date.Add(timeSpan).ToString(); //Adicionar tempo na data a partir de um timeSpan.
             txtResult.Text = date.AddYears(22).ToString(); //Adicionar anos na data.
         }
+
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            Color color = Color.Yellow;
+            Color color1 = Color.FromArgb(90, Color.DarkOrange);
+            Color color2 = Color.FromArgb(200, 150, 196);
+            Color color3 = Color.FromArgb(255, 220, 150, 196);
+            Color color4 = Color.FromName("Blue");
+
+            Color color5 = Color.FromKnownColor(KnownColor.DarkRed);
+
+            txtResult.ForeColor = color1;
+            txtResult.BackColor = color3;
+            btnColor.BackColor = txtResult.ForeColor = color5;
+        }
     }
 }

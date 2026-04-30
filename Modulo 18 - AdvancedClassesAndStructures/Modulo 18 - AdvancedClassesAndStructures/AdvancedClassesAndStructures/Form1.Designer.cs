@@ -32,6 +32,7 @@
             this.btnRandom = new System.Windows.Forms.Button();
             this.btnTimeSpan = new System.Windows.Forms.Button();
             this.btnDateTime = new System.Windows.Forms.Button();
+            this.btnColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtResult
@@ -77,11 +78,23 @@
             this.btnDateTime.UseVisualStyleBackColor = true;
             this.btnDateTime.Click += new System.EventHandler(this.btnDateTime_Click);
             // 
+            // btnColor
+            // 
+            this.btnColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnColor.Location = new System.Drawing.Point(393, 333);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(121, 55);
+            this.btnColor.TabIndex = 4;
+            this.btnColor.Text = "Color";
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnColor);
             this.Controls.Add(this.btnDateTime);
             this.Controls.Add(this.btnTimeSpan);
             this.Controls.Add(this.btnRandom);
@@ -99,6 +112,7 @@
         private System.Windows.Forms.Button btnRandom;
         private System.Windows.Forms.Button btnTimeSpan;
         private System.Windows.Forms.Button btnDateTime;
+        private System.Windows.Forms.Button btnColor;
     }
 }
 
