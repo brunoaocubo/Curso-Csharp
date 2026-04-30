@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,7 +95,34 @@ namespace AdvancedClassesAndStructures
             Font font2 = new Font("Comic Sans MS, sans-serif", 36, FontStyle.Italic | FontStyle.Bold, GraphicsUnit.Pixel);
             Font font3 = new Font(FontFamily.GenericMonospace, 36, FontStyle.Regular, GraphicsUnit.Pixel);
 
-            txtResult.Font = font3;
+            txtResult.Font = font2;
+        }
+
+        private void btnEnv_Click(object sender, EventArgs e)
+        {
+            txtResult.Text = "";
+            string myDocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string myFilesX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+            string myAppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string thisDir = Environment.CurrentDirectory;
+
+            //txtResult.Text = thisDir + Environment.NewLine + myDocs;
+
+            string varAmb = Environment.GetEnvironmentVariable("Path");
+            string[] logicalDrive = Environment.GetLogicalDrives();
+
+            /*
+            foreach (string item in logicalDrive)
+            {
+                txtResult.Text += item + "\n";
+            }*/
+
+            string user = Environment.UserName;
+            string userDomain = Environment.UserDomainName;
+            int cpu = Environment.ProcessorCount;
+
+
+            txtResult.Text = cpu.ToString();
         }
     }
 }

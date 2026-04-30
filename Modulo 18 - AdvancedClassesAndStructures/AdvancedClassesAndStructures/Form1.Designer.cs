@@ -34,15 +34,17 @@
             this.btnDateTime = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
             this.btnFont = new System.Windows.Forms.Button();
+            this.btnEnv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtResult
             // 
             this.txtResult.AutoSize = true;
-            this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txtResult.Location = new System.Drawing.Point(8, 9);
+            this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.Location = new System.Drawing.Point(12, 9);
+            this.txtResult.MaximumSize = new System.Drawing.Size(800, 0);
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(86, 31);
+            this.txtResult.Size = new System.Drawing.Size(79, 29);
             this.txtResult.TabIndex = 0;
             this.txtResult.Text = "label1";
             // 
@@ -101,11 +103,23 @@
             this.btnFont.UseVisualStyleBackColor = true;
             this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
             // 
+            // btnEnv
+            // 
+            this.btnEnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnEnv.Location = new System.Drawing.Point(647, 333);
+            this.btnEnv.Name = "btnEnv";
+            this.btnEnv.Size = new System.Drawing.Size(121, 55);
+            this.btnEnv.TabIndex = 6;
+            this.btnEnv.Text = "Environment";
+            this.btnEnv.UseVisualStyleBackColor = true;
+            this.btnEnv.Click += new System.EventHandler(this.btnEnv_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEnv);
             this.Controls.Add(this.btnFont);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.btnDateTime);
@@ -127,6 +141,7 @@
         private System.Windows.Forms.Button btnDateTime;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Button btnFont;
+        private System.Windows.Forms.Button btnEnv;
     }
 }
 
