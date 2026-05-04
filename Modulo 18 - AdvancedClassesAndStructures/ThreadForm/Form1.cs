@@ -50,8 +50,11 @@ namespace ThreadForm
             while (true)
             {
                 //txtResult.Text = DateTime.Now.Second.ToString();
-                SetProprietieValue(txtResult, "Text", DateTime.Now.Second.ToString());
+                //SetProprietieValue(txtResult, "Text", DateTime.Now.Second.ToString());
+                txtResult.Invoke(new Action(() => txtResult.Text = DateTime.Now.Second.ToString())); //Utilizando o próprio invoke da propriedade gráfica e criando o delegate anônimo junto com o método anônimo para realizar a mesma situação.
             }
+
+
 
         }
 
