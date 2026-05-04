@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="AdvancedClassesAndStructures/AdvancedClassesAndStructures.csproj" Id="a42cf696-8013-41eb-8144-178c41c37971" />
+  <Project Path="TaskConsole/TaskConsole.csproj" Id="7eb66d01-d07f-447a-bd7a-0060a037eb02" />
   <Project Path="ThreadConsole/ThreadConsole.csproj" Id="cdab6992-aef4-486a-8a57-2bbf7592bf56" />
   <Project Path="ThreadForm/ThreadForm.csproj" Id="c2b40e55-abca-4d30-8c52-056e0dda78c5" />
 </Solution>
