@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="FormControl/FormControl.csproj" Id="5f292240-fb9b-412c-b84d-8c300c7bb4d1" />
   <Project Path="FormDetails/FormDetails.csproj" Id="31c89a8f-fc43-4b70-8c27-c5899b92c220" />
 </Solution>
