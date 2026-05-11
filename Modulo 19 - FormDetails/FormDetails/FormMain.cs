@@ -57,8 +57,10 @@ namespace FormDetails
 
         private void menuOption_OpenFile_Click(object sender, EventArgs e)
         {
+            Hide();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.ShowDialog();
+            ShowDialog();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)

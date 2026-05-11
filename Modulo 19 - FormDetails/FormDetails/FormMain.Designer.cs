@@ -108,32 +108,38 @@
             // 
             // menuOption_NewFile
             // 
+            this.menuOption_NewFile.Image = global::FormDetails.Properties.Resources.extract_detail_icon;
             this.menuOption_NewFile.Name = "menuOption_NewFile";
-            this.menuOption_NewFile.Size = new System.Drawing.Size(103, 22);
+            this.menuOption_NewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.menuOption_NewFile.Size = new System.Drawing.Size(180, 22);
             this.menuOption_NewFile.Text = "Novo";
             this.menuOption_NewFile.Click += new System.EventHandler(this.menuOption_NewFile_Click);
             // 
             // menuOption_OpenFile
             // 
+            this.menuOption_OpenFile.Image = global::FormDetails.Properties.Resources.extract_detail_icon;
             this.menuOption_OpenFile.Name = "menuOption_OpenFile";
-            this.menuOption_OpenFile.Size = new System.Drawing.Size(103, 22);
+            this.menuOption_OpenFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.menuOption_OpenFile.Size = new System.Drawing.Size(180, 22);
             this.menuOption_OpenFile.Text = "Abrir";
             this.menuOption_OpenFile.Click += new System.EventHandler(this.menuOption_OpenFile_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(100, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // sairToolStripMenuItem
             // 
+            this.sairToolStripMenuItem.Image = global::FormDetails.Properties.Resources.exit_icon;
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.sairToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
