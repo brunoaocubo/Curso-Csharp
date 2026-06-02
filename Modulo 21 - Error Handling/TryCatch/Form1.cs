@@ -19,19 +19,26 @@ namespace TryCatch
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int[] numbers = { 10, 20, 30, 40, 50 };
+
             try
             {
-                int[] numbers = { 10, 20, 30, 40, 50 };
                 string s = "";
-                for (int i = 0; i < 6; i++)
+
+                for (int i = 0; i < 5; i++)
                 {
                     s += numbers[i] + " ";
                 }
+                label1.Text = s;
 
             }
             catch (Exception ex)
             {
                 label1.Text = "Erro:" + ex.Message;
+            }
+            finally
+            {
+                MessageBox.Show("Operação Finalizada. Execução de bloco finally.");
             }
         }
     }
