@@ -14,6 +14,7 @@ namespace ReadWrite_Files
 {
     public partial class Form1 : Form
     {
+        byte[] buffer;
         public Form1()
         {
             InitializeComponent();
@@ -62,6 +63,50 @@ namespace ReadWrite_Files
             }
 
             reader.Close();
+        }
+
+        private void btnReadBinary_Click(object sender, EventArgs e)
+        {
+            string path = @"c:\teste\file.txt";
+            string path2 = @"c:\teste\imagem.png";
+            string path3 = @"c:\teste\video.mp4";
+            FileStream file = File.OpenRead(path3);
+            BinaryReader reader = new BinaryReader(file, Encoding.Default);
+
+            /*
+            while (reader.BaseStream.Position != reader.BaseStream.Length)
+            {
+                byte b = reader.ReadByte();
+                txtContent.Text += (char)b + " ";
+            }*/
+
+            buffer = reader.ReadBytes((int)reader.BaseStream.Length);
+
+            /*
+            foreach (byte b in buffer)
+            {
+                txtContent.Text += (char)b;
+            }
+            */
+
+            reader.Close();
+
+            //buffer = File.ReadAllBytes(path);
+        }
+
+        private void btnWriteBinary_Click(object sender, EventArgs e)
+        {
+            string path = @"c:\teste\file.txt";
+            string path2 = @"c:\teste\imagemNovo.png";
+            string path3 = @"c:\teste\videoNovo.mp4";
+            FileStream file = File.OpenWrite(path3);
+            BinaryWriter writer = new BinaryWriter(file);
+
+            writer.Write(buffer);
+
+            writer.Flush();
+            writer.Dispose();
+            writer.Close();
         }
     }
 }

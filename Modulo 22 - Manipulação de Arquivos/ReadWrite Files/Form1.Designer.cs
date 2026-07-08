@@ -31,6 +31,8 @@
             this.btnWriteText = new System.Windows.Forms.Button();
             this.btnReadText = new System.Windows.Forms.Button();
             this.txtContent = new System.Windows.Forms.RichTextBox();
+            this.btnReadBinary = new System.Windows.Forms.Button();
+            this.btnWriteBinary = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnWriteText
@@ -47,7 +49,7 @@
             // btnReadText
             // 
             this.btnReadText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnReadText.Location = new System.Drawing.Point(189, 385);
+            this.btnReadText.Location = new System.Drawing.Point(174, 386);
             this.btnReadText.Name = "btnReadText";
             this.btnReadText.Size = new System.Drawing.Size(154, 53);
             this.btnReadText.TabIndex = 2;
@@ -64,11 +66,35 @@
             this.txtContent.TabIndex = 3;
             this.txtContent.Text = "";
             // 
+            // btnReadBinary
+            // 
+            this.btnReadBinary.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnReadBinary.Location = new System.Drawing.Point(334, 386);
+            this.btnReadBinary.Name = "btnReadBinary";
+            this.btnReadBinary.Size = new System.Drawing.Size(154, 53);
+            this.btnReadBinary.TabIndex = 4;
+            this.btnReadBinary.Text = "Ler Binário";
+            this.btnReadBinary.UseVisualStyleBackColor = true;
+            this.btnReadBinary.Click += new System.EventHandler(this.btnReadBinary_Click);
+            // 
+            // btnWriteBinary
+            // 
+            this.btnWriteBinary.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnWriteBinary.Location = new System.Drawing.Point(495, 385);
+            this.btnWriteBinary.Name = "btnWriteBinary";
+            this.btnWriteBinary.Size = new System.Drawing.Size(157, 53);
+            this.btnWriteBinary.TabIndex = 5;
+            this.btnWriteBinary.Text = "Escrever Binário";
+            this.btnWriteBinary.UseVisualStyleBackColor = true;
+            this.btnWriteBinary.Click += new System.EventHandler(this.btnWriteBinary_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnWriteBinary);
+            this.Controls.Add(this.btnReadBinary);
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.btnReadText);
             this.Controls.Add(this.btnWriteText);
@@ -82,6 +108,8 @@
         private System.Windows.Forms.Button btnWriteText;
         private System.Windows.Forms.Button btnReadText;
         private System.Windows.Forms.RichTextBox txtContent;
+        private System.Windows.Forms.Button btnReadBinary;
+        private System.Windows.Forms.Button btnWriteBinary;
     }
 }
 
