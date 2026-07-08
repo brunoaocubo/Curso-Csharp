@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Directory Class/Directory Class.csproj" Id="2f852d1c-a6a0-48b4-b284-958239fc459b" />
+  <Project Path="Directory Info/Directory Info.csproj" Id="acff8ce2-3efe-4894-936c-a60b753f982d" />
   <Project Path="File Class/File Class.csproj" Id="4008e93a-1bd1-4a81-9752-f5c551893fa9" />
   <Project Path="File Info/File Info.csproj" Id="ab44f03a-5fff-4eb7-9697-bd949e999849" />
 </Solution>
