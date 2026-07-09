@@ -28,7 +28,7 @@ namespace Base_de_Dados
 
             #region SQL Server CE
             /*
-            string database = Application.StartupPath + @"\db\DBSQLServer.sdf";
+            string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
             SqlCeEngine db = new SqlCeEngine(strConnection);
@@ -94,6 +94,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;password=8284";
             //string srtConnection2 = "server=127.0.0.1;User Id=root;database=curso_db;password=4646";
 
@@ -120,6 +121,45 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
+            */
+            #endregion
+        }
+
+        private void btnCreateTable_Click(object sender, EventArgs e)
+        {
+            string directoryPath = Path.Combine(Application.StartupPath, "db");
+
+            #region SQL Server CE
+            /*
+            string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
+            string strConnection = $@"DataSource = {database}; Password = '1234'";
+
+            SqlCeConnection connection = new SqlCeConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                SqlCeCommand command = new SqlCeCommand();
+                command.Connection = connection;
+
+                command.CommandText = "CREATE TABLE pessoas(id INT NOT NULL PRIMARY KEY, none NVARCHAR(50), email NVARCHAR(50))";
+                command.ExecuteNonQuery();
+
+                txtResult.Text = "Tabela Sql CE criada com sucesso!";
+                command.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            */
             #endregion
         }
     }
