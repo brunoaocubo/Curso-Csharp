@@ -92,7 +92,7 @@ namespace Base_de_Dados
             }
             */
             #endregion
-
+            
             #region MySQL
             /*
             string strConnection = "server=127.0.0.1;User Id=root;password=8284";
@@ -176,7 +176,7 @@ namespace Base_de_Dados
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
 
-                command.CommandText = "CREATE TABLE pessoas(id INT NOT NULL PRIMARY KEY, none NVARCHAR(50), email NVARCHAR(50))";
+                command.CommandText = "CREATE TABLE pessoas(id INTEGER PRIMARY KEY AUTOINCREMENT, none NVARCHAR(50), email NVARCHAR(50))";
                 command.ExecuteNonQuery();
 
                 txtResult.Text = "Tabela SQLite criada com sucesso!";
@@ -196,7 +196,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
-
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -223,14 +223,53 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            #region MySQL
+            string directoryPath = Path.Combine(Application.StartupPath, "db");
+
+            #region SQLite
             
+            string database = Path.Combine(directoryPath, "DBSQLite.db");
+            string strConnection = $@"Data Source = {database}; Version = 3";
+
+            SQLiteConnection connection = new SQLiteConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+
+                command.CommandText = "INSERT INTO pessoas(none, email) VALUES($name, $email)";
+
+                command.Parameters.Clear();
+
+                command.Parameters.AddWithValue("$name", inputName.Text);
+                command.Parameters.AddWithValue("$email", inputEmail.Text);
+
+                command.ExecuteNonQuery();
+
+                txtResult.Text = "Dados inseridos na tabela SQLite";
+                command.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            #endregion
+
+            #region MySQL
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -263,7 +302,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
         }
     }
