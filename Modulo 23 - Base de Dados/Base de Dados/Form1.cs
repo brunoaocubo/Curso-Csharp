@@ -161,6 +161,39 @@ namespace Base_de_Dados
             }
             */
             #endregion
+
+            #region SQLite
+
+            string database = Path.Combine(directoryPath, "DBSQLite.db");
+            string strConnection = $@"Data Source = {database}; Version = 3";
+
+            SQLiteConnection connection = new SQLiteConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+
+                command.CommandText = "CREATE TABLE pessoas(id INT NOT NULL PRIMARY KEY, none NVARCHAR(50), email NVARCHAR(50))";
+                command.ExecuteNonQuery();
+
+                txtResult.Text = "Tabela SQLite criada com sucesso!";
+                command.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
+            #endregion
         }
     }
 }
