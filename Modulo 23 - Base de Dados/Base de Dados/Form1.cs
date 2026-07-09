@@ -130,7 +130,7 @@ namespace Base_de_Dados
             string directoryPath = Path.Combine(Application.StartupPath, "db");
 
             #region SQL Server CE
-            /*
+            
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -143,7 +143,7 @@ namespace Base_de_Dados
                 SqlCeCommand command = new SqlCeCommand();
                 command.Connection = connection;
 
-                command.CommandText = "CREATE TABLE pessoas(id INT NOT NULL PRIMARY KEY, none NVARCHAR(50), email NVARCHAR(50))";
+                command.CommandText = "CREATE TABLE pessoas(id INT IDENTITY(1,1) PRIMARY KEY, none NVARCHAR(50), email NVARCHAR(50))";
                 command.ExecuteNonQuery();
 
                 txtResult.Text = "Tabela Sql CE criada com sucesso!";
@@ -159,7 +159,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
 
             #region SQLite
@@ -231,8 +231,47 @@ namespace Base_de_Dados
         {
             string directoryPath = Path.Combine(Application.StartupPath, "db");
 
+            #region SQL Server CE
+
+            string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
+            string strConnection = $@"DataSource = {database}; Password = '1234'";
+
+            SqlCeConnection connection = new SqlCeConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                SqlCeCommand command = new SqlCeCommand();
+                command.Connection = connection;
+
+                command.CommandText = "INSERT INTO pessoas(none, email) VALUES(@name, @email)";
+
+                command.Parameters.Clear();
+
+                command.Parameters.AddWithValue("@name", inputName.Text);
+                command.Parameters.AddWithValue("@email", inputEmail.Text);
+
+                command.ExecuteNonQuery();
+
+                txtResult.Text = "Dados inseridos na tabela SQL Server CE";
+                command.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            #endregion
+
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -266,6 +305,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
+            */
             #endregion
 
             #region MySQL
