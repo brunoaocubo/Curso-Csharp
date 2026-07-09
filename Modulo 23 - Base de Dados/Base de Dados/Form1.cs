@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlServerCe;
 using System.IO;
+
+using System.Data.SqlServerCe;
+using System.Data.SQLite;
 
 namespace Base_de_Dados
 {
@@ -21,6 +23,10 @@ namespace Base_de_Dados
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            string directoryPath = Path.Combine(Application.StartupPath, "db");
+
+            #region SQL Server CE
+            /*
             string database = Application.StartupPath + @"\db\DBSQLServer.sdf";
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -48,6 +54,41 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
+            */
+            #endregion
+
+            #region SQL Server Lite
+            string database = Path.Combine(directoryPath, "DBSQLite.db");
+            string strConnection = $@"Data Source = {database};";
+
+
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+
+                if (!File.Exists(database))
+                {
+                    SQLiteConnection.CreateFile(database);
+                }
+            }
+
+            SQLiteConnection connection = new SQLiteConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+                txtResult.Text = "Conectado ao SQLite";
+            }
+            catch (Exception ex)
+            {
+
+                txtResult.Text = "Erro ao conectar SQLite \n" + ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            #endregion
         }
     }
 }
