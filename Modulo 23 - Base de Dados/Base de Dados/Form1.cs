@@ -11,6 +11,7 @@ using System.IO;
 
 using System.Data.SqlServerCe;
 using System.Data.SQLite;
+using MySql.Data.MySqlClient;
 
 namespace Base_de_Dados
 {
@@ -58,6 +59,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQL Server Lite
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database};";
 
@@ -83,6 +85,36 @@ namespace Base_de_Dados
             {
 
                 txtResult.Text = "Erro ao conectar SQLite \n" + ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            */
+            #endregion
+
+            #region MySQL
+            string strConnection = "server=127.0.0.1;User Id=root;password=8284";
+            //string srtConnection2 = "server=127.0.0.1;User Id=root;database=curso_db;password=4646";
+
+            MySqlConnection connection = new MySqlConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+                txtResult.Text = "Conectado ao MySQL";
+
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandText = "CREATE DATABASE IF NOT EXISTS csharp_db";
+                command.ExecuteNonQuery();
+                txtResult.Text = "Base de Dados criada com sucesso";
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                txtResult.Text = "Erro ao conectar MySQL \n" + ex;
             }
             finally
             {

@@ -93,6 +93,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=9.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.7\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2, Version=3.0.3.3048, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.config.e_sqlite3.3.0.3\lib\net471\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
