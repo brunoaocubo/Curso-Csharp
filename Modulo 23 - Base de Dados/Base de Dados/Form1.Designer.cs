@@ -35,8 +35,8 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtName = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.inputName = new System.Windows.Forms.TextBox();
+            this.inputEmail = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnCreateTable = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
@@ -107,21 +107,21 @@
             this.txtEmail.TabIndex = 3;
             this.txtEmail.Text = "Email";
             // 
-            // textBox1
+            // inputName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox1.Location = new System.Drawing.Point(111, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(422, 29);
-            this.textBox1.TabIndex = 4;
+            this.inputName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.inputName.Location = new System.Drawing.Point(111, 92);
+            this.inputName.Name = "inputName";
+            this.inputName.Size = new System.Drawing.Size(422, 29);
+            this.inputName.TabIndex = 4;
             // 
-            // textBox2
+            // inputEmail
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox2.Location = new System.Drawing.Point(111, 137);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(422, 29);
-            this.textBox2.TabIndex = 5;
+            this.inputEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.inputEmail.Location = new System.Drawing.Point(111, 137);
+            this.inputEmail.Name = "inputEmail";
+            this.inputEmail.Size = new System.Drawing.Size(422, 29);
+            this.inputEmail.TabIndex = 5;
             // 
             // btnConnect
             // 
@@ -154,6 +154,7 @@
             this.btnInsert.TabIndex = 8;
             this.btnInsert.Text = "Inserir";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnSearch
             // 
@@ -196,8 +197,8 @@
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnCreateTable);
             this.Controls.Add(this.btnConnect);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.inputEmail);
+            this.Controls.Add(this.inputName);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.listGrid);
@@ -219,8 +220,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.Label txtName;
         private System.Windows.Forms.Label txtEmail;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox inputName;
+        private System.Windows.Forms.TextBox inputEmail;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnCreateTable;
         private System.Windows.Forms.Button btnInsert;

@@ -226,5 +226,45 @@ namespace Base_de_Dados
             
             #endregion
         }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            #region MySQL
+            
+            string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
+            MySqlConnection connection = new MySqlConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandText = "INSERT INTO pessoas(none, email) VALUES(@name, @email)";
+
+                command.Parameters.Clear();
+
+                command.Parameters.AddWithValue("@name", inputName.Text);
+                command.Parameters.AddWithValue("@email", inputEmail.Text);
+
+                command.ExecuteNonQuery();
+
+                txtResult.Text = "Dados inseridos na tabela MySQL";
+                command.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
+            #endregion
+        }
     }
 }
