@@ -96,7 +96,7 @@ namespace Base_de_Dados
             #region MySQL
             /*
             string strConnection = "server=127.0.0.1;User Id=root;password=8284";
-            //string srtConnection2 = "server=127.0.0.1;User Id=root;database=curso_db;password=4646";
+            //string strConnection2 = "server=127.0.0.1;User Id=root;database=curso_db;password=4646";
 
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -163,7 +163,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -180,6 +180,37 @@ namespace Base_de_Dados
                 command.ExecuteNonQuery();
 
                 txtResult.Text = "Tabela SQLite criada com sucesso!";
+                command.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            */
+            #endregion
+
+            #region MySQL
+
+            string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
+            MySqlConnection connection = new MySqlConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandText = "CREATE TABLE pessoas(id INT NOT NULL, none VARCHAR(50), email VARCHAR(50), PRIMARY KEY(id))";
+                command.ExecuteNonQuery();
+
+                txtResult.Text = "Tabela MySQL criada com sucesso!";
                 command.Dispose();
 
             }
