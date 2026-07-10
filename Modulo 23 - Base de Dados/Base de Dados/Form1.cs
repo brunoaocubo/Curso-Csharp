@@ -346,7 +346,7 @@ namespace Base_de_Dados
         private void btnSearch_Click(object sender, EventArgs e)
         {
             #region SQL Server CE
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -372,12 +372,54 @@ namespace Base_de_Dados
                 }
                 command.ExecuteNonQuery();
 
-                txtResult.Text = "Dados foram recuperados da tabela SQL Server CE";
+                txtResult.Text = "Dados foram recuperados do banco de dados SQL Server CE";
                 command.Dispose();
             }
             catch (Exception ex)
             {
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            */
+            #endregion
 
+            #region SQLite
+            
+            string database = Path.Combine(directoryPath, "DBSQLite.db");
+            string strConnection = $@"Data Source = {database}; Version = 3";
+
+            SQLiteConnection connection = new SQLiteConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+
+                command.CommandText = "SELECT id, none, email FROM pessoas";
+
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                listGrid.Rows.Clear();
+
+                while (reader.Read())
+                {
+                    listGrid.Rows.Add($"{reader["id"]}", $"{reader["none"]}", $"{reader["email"]}");
+                }
+
+                reader.Close();
+
+                command.ExecuteNonQuery();
+                command.Dispose();
+
+                txtResult.Text = "Dados foram recuperados do banco de dados SQLite";
+            }
+            catch (Exception ex)
+            {
                 txtResult.Text = ex.Message;
             }
             finally
