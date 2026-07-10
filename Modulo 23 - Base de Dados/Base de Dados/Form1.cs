@@ -12,11 +12,14 @@ using System.IO;
 using System.Data.SqlServerCe;
 using System.Data.SQLite;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace Base_de_Dados
 {
     public partial class Form1 : Form
     {
+        string directoryPath = Path.Combine(Application.StartupPath, "db");
+
         public Form1()
         {
             InitializeComponent();
@@ -24,8 +27,6 @@ namespace Base_de_Dados
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            string directoryPath = Path.Combine(Application.StartupPath, "db");
-
             #region SQL Server CE
             /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
@@ -127,10 +128,8 @@ namespace Base_de_Dados
 
         private void btnCreateTable_Click(object sender, EventArgs e)
         {
-            string directoryPath = Path.Combine(Application.StartupPath, "db");
-
             #region SQL Server CE
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -159,7 +158,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region SQLite
@@ -228,11 +227,9 @@ namespace Base_de_Dados
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
-        {
-            string directoryPath = Path.Combine(Application.StartupPath, "db");
-
+        {         
             #region SQL Server CE
-
+            /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -267,7 +264,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-
+            */
             #endregion
 
             #region SQLite
@@ -343,6 +340,51 @@ namespace Base_de_Dados
                 connection.Close();
             }
             */
+            #endregion
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            #region SQL Server CE
+            
+            string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
+            string strConnection = $@"DataSource = {database}; Password = '1234'";
+
+            SqlCeConnection connection = new SqlCeConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                SqlCeCommand command = new SqlCeCommand();
+                command.Connection = connection;
+
+                command.CommandText = "SELECT id, none, email FROM pessoas";
+
+                SqlCeDataReader reader = command.ExecuteReader();
+
+                listGrid.Rows.Clear();
+
+                while (reader.Read())
+                {
+                    Debug.WriteLine($"ID: {reader["id"]} | Nome: {reader["none"]} | Email: {reader["email"]}");
+                    listGrid.Rows.Add($"{reader["id"]}", $"{reader["none"]}", $"{reader["email"]}");
+                }
+                command.ExecuteNonQuery();
+
+                txtResult.Text = "Dados foram recuperados da tabela SQL Server CE";
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
             #endregion
         }
     }
