@@ -345,6 +345,9 @@ namespace Base_de_Dados
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            txtResult.Text = "";
+            listGrid.Rows.Clear();
+
             #region SQL Server CE
             /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
@@ -358,19 +361,20 @@ namespace Base_de_Dados
 
                 SqlCeCommand command = new SqlCeCommand();
                 command.Connection = connection;
+                command.CommandText = "SELECT * FROM pessoas";
 
-                command.CommandText = "SELECT id, none, email FROM pessoas";
+                if (!String.IsNullOrEmpty(inputName.Text))
+                {
+                    command.CommandText = "SELECT * FROM pessoas WHERE none LIKE '" + inputName.Text + "%'"; 
+                }
 
                 SqlCeDataReader reader = command.ExecuteReader();
-
-                listGrid.Rows.Clear();
 
                 while (reader.Read())
                 {
                     Debug.WriteLine($"ID: {reader["id"]} | Nome: {reader["none"]} | Email: {reader["email"]}");
                     listGrid.Rows.Add($"{reader["id"]}", $"{reader["none"]}", $"{reader["email"]}");
                 }
-                command.ExecuteNonQuery();
 
                 txtResult.Text = "Dados foram recuperados do banco de dados SQL Server CE";
                 command.Dispose();
@@ -399,8 +403,12 @@ namespace Base_de_Dados
 
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
+                command.CommandText = "SELECT * FROM pessoas";
 
-                command.CommandText = "SELECT id, none, email FROM pessoas";
+                if (!String.IsNullOrEmpty(inputName.Text))
+                {
+                    command.CommandText = "SELECT * FROM pessoas WHERE none LIKE '" + inputName.Text + "%'";
+                }
 
                 SQLiteDataReader reader = command.ExecuteReader();
 
@@ -412,8 +420,6 @@ namespace Base_de_Dados
                 }
 
                 reader.Close();
-
-                command.ExecuteNonQuery();
                 command.Dispose();
 
                 txtResult.Text = "Dados foram recuperados do banco de dados SQLite";
@@ -440,8 +446,12 @@ namespace Base_de_Dados
 
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = connection;
+                command.CommandText = "SELECT * FROM pessoas";
 
-                command.CommandText = "SELECT id, none, email FROM pessoas";
+                if (!String.IsNullOrEmpty(inputName.Text))
+                {
+                    command.CommandText = "SELECT * FROM pessoas WHERE none LIKE '" + inputName.Text + "%'";
+                }
 
                 MySqlDataReader reader = command.ExecuteReader();
 
@@ -454,7 +464,6 @@ namespace Base_de_Dados
 
                 reader.Close();
 
-                command.ExecuteNonQuery();
                 command.Dispose();
                 txtResult.Text = "Dados foram recuperados do banco de dados MySql";
             }
