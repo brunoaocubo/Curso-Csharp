@@ -387,7 +387,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -426,7 +426,47 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
+            #endregion
+
+            #region MySQL
+            /*
+            string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
+            MySqlConnection connection = new MySqlConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandText = "SELECT id, none, email FROM pessoas";
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                listGrid.Rows.Clear();
+
+                while (reader.Read())
+                {
+                    listGrid.Rows.Add($"{reader["id"]}", $"{reader["none"]}", $"{reader["email"]}");
+                }
+
+                reader.Close();
+
+                command.ExecuteNonQuery();
+                command.Dispose();
+                txtResult.Text = "Dados foram recuperados do banco de dados MySql";
+            }
+            catch (Exception ex)
+            {
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            */
             #endregion
         }
     }
