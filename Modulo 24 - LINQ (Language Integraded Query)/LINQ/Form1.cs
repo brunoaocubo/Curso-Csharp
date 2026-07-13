@@ -14,7 +14,7 @@ namespace LINQ
     {
         List<string> list_names = new List<string>()
         {
-            "Loren", "Carla", "Jessi", "Alfredo", "João", "Lucas", "Anabel", "Cassia"
+            "Loren", "Carla", "Jessi", "Alfredo", "João", "Lucas", "Anabel", "Cassia", "Douglas", "Gabriel", "Gabriela", "Bruna", "Bernardo", "Leandro", "Carmen", "Jaiana", "Alicia"
         };
 
         List<int> list_numbers = new List<int>()
@@ -148,6 +148,52 @@ namespace LINQ
                     listResult.Items.Add("    " + state.Key);
                 }
             }
+        }
+
+        private void btnAggregate_Click(object sender, EventArgs e)
+        {
+            listResult.Items.Clear();
+
+            var res = from name in list_names select name;
+            var res1 = (from name in list_names where name.StartsWith("L") select name).Count();
+
+            listResult.Items.Add(res.Count() + " nomes na lista.");
+            listResult.Items.Add("Nomes começando com a letra L: " + res1);
+
+            double average1 = list_numbers.Average();
+            listResult.Items.Add("Média dos valores na lista de números: " + average1);
+
+            var res3 = from num in list_numbers where num < 10 select num;
+            double average2 = res3.Average();
+            listResult.Items.Add("Média dos números menores que 10: " + average2);
+
+            int sum1 = list_numbers.Sum();
+            listResult.Items.Add("Soma dos valores na lista de números: " + sum1);
+
+            var res4 = from num in list_numbers where num < 10 select num;
+            double sum2 = res4.Sum();
+            listResult.Items.Add("Soma dos números menores que 10: " + sum2);
+
+            listResult.Items.Add($"Valor mínimo da lista de números: {list_numbers.Min()}");
+            listResult.Items.Add($"Valor máximo da lista de números: {list_numbers.Max()}");
+            //long count = list_numbers.LongCount(); //Pode ser utilizado em uma consulta LINQ
+
+            //Pode ser utilizado em uma consulta LINQ
+            string greaterName = list_names.Aggregate((greater, nextName) =>
+            {
+                if (greater.Length > nextName.Length)
+                {
+                    return greater;
+
+                }
+                else
+                {
+                    return nextName;
+                }
+            });
+
+            listResult.Items.Add($"O maior nome da lista: {greaterName}");
+
         }
     }
 }

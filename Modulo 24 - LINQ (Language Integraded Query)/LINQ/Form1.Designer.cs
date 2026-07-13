@@ -34,6 +34,7 @@
             this.btnWhere = new System.Windows.Forms.Button();
             this.btnOrderby = new System.Windows.Forms.Button();
             this.btnGroupby = new System.Windows.Forms.Button();
+            this.btnAggregate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listResult
@@ -99,11 +100,23 @@
             this.btnGroupby.UseVisualStyleBackColor = true;
             this.btnGroupby.Click += new System.EventHandler(this.btnGroupby_Click);
             // 
+            // btnAggregate
+            // 
+            this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnAggregate.Location = new System.Drawing.Point(617, 313);
+            this.btnAggregate.Name = "btnAggregate";
+            this.btnAggregate.Size = new System.Drawing.Size(171, 58);
+            this.btnAggregate.TabIndex = 6;
+            this.btnAggregate.Text = "Operadores de Agregação";
+            this.btnAggregate.UseVisualStyleBackColor = true;
+            this.btnAggregate.Click += new System.EventHandler(this.btnAggregate_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAggregate);
             this.Controls.Add(this.btnGroupby);
             this.Controls.Add(this.btnOrderby);
             this.Controls.Add(this.btnWhere);
@@ -125,6 +138,7 @@
         private System.Windows.Forms.Button btnWhere;
         private System.Windows.Forms.Button btnOrderby;
         private System.Windows.Forms.Button btnGroupby;
+        private System.Windows.Forms.Button btnAggregate;
     }
 }
 
