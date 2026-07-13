@@ -19,7 +19,7 @@ namespace LINQ
 
         List<int> list_numbers = new List<int>()
         {
-            1,2,3,4,5,6,7,9,10,11,12
+            12,1,2,3,9,8,7,5,4,10,6,11
         };
 
         Dictionary<string, double> list_products = new Dictionary<string, double>()
@@ -75,15 +75,15 @@ namespace LINQ
             IEnumerable<int> res_numbers = from num in list_numbers where num % 2 == 0 select num;
 
             //Opção 1
-            listResult.DataSource = res_numbers.ToArray();
+            //listResult.DataSource = res_numbers.ToArray();
 
             //Opção 2
-            /*
+            
             foreach (int num in res_numbers)
             {
                 listResult.Items.Add(num);
             }
-            */
+            
             #endregion
         }
 
@@ -91,7 +91,6 @@ namespace LINQ
         {
             listResult.Items.Clear();
 
-            
             string input = inputTxt.Text.ToLower(); //Transformando a string de entrada em minusculo para facilitar a busca.
 
             // Transformando o dado da lista em minusculo para facilitar a busca.
@@ -103,6 +102,34 @@ namespace LINQ
             {
                 listResult.Items.Add(item);
             }
+        }
+
+        private void btnOrderby_Click(object sender, EventArgs e)
+        {
+            listResult.Items.Clear();
+
+            /*
+            var res_numbers = from num in list_numbers
+                              orderby num descending
+                              select num;
+           
+
+            var res_names = from name in list_names
+                            orderby name 
+                            select name;
+
+             */
+
+            var res_products = from prod in list_products
+                               orderby prod.Value
+                               where prod.Value >= 50
+                               select prod;
+
+            foreach (var item in res_products)
+            {
+                listResult.Items.Add($"{item.Key} | R$ {item.Value}");
+            }
+            
         }
     }
 }
