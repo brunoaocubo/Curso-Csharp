@@ -86,5 +86,23 @@ namespace LINQ
             */
             #endregion
         }
+
+        private void btnWhere_Click(object sender, EventArgs e)
+        {
+            listResult.Items.Clear();
+
+            
+            string input = inputTxt.Text.ToLower(); //Transformando a string de entrada em minusculo para facilitar a busca.
+
+            // Transformando o dado da lista em minusculo para facilitar a busca.
+            var res3 = from name in list_names
+                       where name.ToLower().Contains(input) 
+                       select name;
+
+            foreach (var item in res3)
+            {
+                listResult.Items.Add(item);
+            }
+        }
     }
 }
