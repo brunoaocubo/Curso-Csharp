@@ -229,7 +229,7 @@ namespace Base_de_Dados
         private void btnInsert_Click(object sender, EventArgs e)
         {         
             #region SQL Server CE
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -264,11 +264,11 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region SQLite
-            /*
+            
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -302,7 +302,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
 
             #region MySQL
@@ -349,7 +349,7 @@ namespace Base_de_Dados
             listGrid.Rows.Clear();
 
             #region SQL Server CE
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -385,11 +385,11 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region SQLite
-            /*
+            
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -430,7 +430,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
 
             #region MySQL
@@ -483,7 +483,7 @@ namespace Base_de_Dados
             //listGrid.Rows.Clear();
 
             #region SQL Server CE
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -509,11 +509,11 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region SQLite
-            /*
+            
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -538,7 +538,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
 
             #region MySQL
@@ -573,7 +573,7 @@ namespace Base_de_Dados
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             #region SQL Server CE
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
             SqlCeConnection connection = new SqlCeConnection(strConnection);
@@ -586,6 +586,40 @@ namespace Base_de_Dados
                 connection.Open();
 
                 SqlCeCommand command = new SqlCeCommand(updateQuery, connection);
+
+                command.Parameters.AddWithValue("@nome", inputName.Text);
+                command.Parameters.AddWithValue("@email", inputEmail.Text);
+                command.Parameters.AddWithValue("@id", id);
+
+                command.ExecuteNonQuery();
+                txtResult.Text = "Dados foram alterados no SQL Server CE";
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            */
+            #endregion
+
+            #region SQLite
+            
+            string database = Path.Combine(directoryPath, "DBSQLite.db");
+            string strConnection = $@"Data Source = {database}; Version = 3";
+            SQLiteConnection connection = new SQLiteConnection(strConnection);
+
+            string updateQuery = "UPDATE pessoas SET nome = @nome, email = @email WHERE id = @id";
+            int id = Convert.ToInt32(listGrid.SelectedRows[0].Cells[0].Value);
+
+            try
+            {
+                connection.Open();
+
+                SQLiteCommand command = new SQLiteCommand(updateQuery, connection);
 
                 command.Parameters.AddWithValue("@nome", inputName.Text);
                 command.Parameters.AddWithValue("@email", inputEmail.Text);
