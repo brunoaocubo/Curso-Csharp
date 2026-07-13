@@ -268,7 +268,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -302,11 +302,11 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region MySQL
-            /*
+            
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -339,7 +339,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
         }
 
@@ -389,7 +389,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -430,11 +430,11 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region MySQL
-            /*
+            
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -473,7 +473,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
         }
 
@@ -513,7 +513,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -538,11 +538,11 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region MySQL
-            /*
+            
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -566,7 +566,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
         }
 
@@ -607,7 +607,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
             SQLiteConnection connection = new SQLiteConnection(strConnection);
@@ -620,6 +620,39 @@ namespace Base_de_Dados
                 connection.Open();
 
                 SQLiteCommand command = new SQLiteCommand(updateQuery, connection);
+
+                command.Parameters.AddWithValue("@nome", inputName.Text);
+                command.Parameters.AddWithValue("@email", inputEmail.Text);
+                command.Parameters.AddWithValue("@id", id);
+
+                command.ExecuteNonQuery();
+                txtResult.Text = "Dados foram alterados no SQL Server CE";
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            */
+            #endregion
+
+            #region MySql
+
+            string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
+            MySqlConnection connection = new MySqlConnection(strConnection);
+
+            string updateQuery = "UPDATE pessoas SET nome = @nome, email = @email WHERE id = @id";
+            int id = Convert.ToInt32(listGrid.SelectedRows[0].Cells[0].Value);
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(updateQuery, connection);
 
                 command.Parameters.AddWithValue("@nome", inputName.Text);
                 command.Parameters.AddWithValue("@email", inputEmail.Text);
