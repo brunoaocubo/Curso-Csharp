@@ -195,5 +195,24 @@ namespace LINQ
             listResult.Items.Add($"O maior nome da lista: {greaterName}");
 
         }
+
+        private void btnElement_Click(object sender, EventArgs e)
+        {
+            //int firstElement = list_numbers.First();
+            int firstElement = list_numbers.FirstOrDefault();
+            listResult.Items.Add(firstElement);
+
+            //int lastElement = list_numbers.Last();
+            int lastElement = list_numbers.LastOrDefault();
+            listResult.Items.Add(lastElement);
+
+            //int elementAt = list_numbers.ElementAt(3);
+            int elementAt = list_numbers.ElementAtOrDefault(3);
+            listResult.Items.Add(elementAt);
+
+            var query = from n in list_numbers where n > 1000 select n;
+            int num = query.FirstOrDefault(); //Primeiro ou valor padrão dos valores filtrados.
+            listResult.Items.Add(num);
+        }
     }
 }

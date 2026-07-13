@@ -35,6 +35,7 @@
             this.btnOrderby = new System.Windows.Forms.Button();
             this.btnGroupby = new System.Windows.Forms.Button();
             this.btnAggregate = new System.Windows.Forms.Button();
+            this.btnElement = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listResult
@@ -44,7 +45,7 @@
             this.listResult.ItemHeight = 29;
             this.listResult.Location = new System.Drawing.Point(13, 13);
             this.listResult.Name = "listResult";
-            this.listResult.Size = new System.Drawing.Size(598, 410);
+            this.listResult.Size = new System.Drawing.Size(598, 439);
             this.listResult.TabIndex = 0;
             // 
             // inputTxt
@@ -58,10 +59,10 @@
             // 
             // btnExecute
             // 
-            this.btnExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExecute.Location = new System.Drawing.Point(617, 58);
             this.btnExecute.Name = "btnExecute";
-            this.btnExecute.Size = new System.Drawing.Size(171, 57);
+            this.btnExecute.Size = new System.Drawing.Size(171, 48);
             this.btnExecute.TabIndex = 2;
             this.btnExecute.Text = "Executar";
             this.btnExecute.UseVisualStyleBackColor = true;
@@ -69,10 +70,10 @@
             // 
             // btnWhere
             // 
-            this.btnWhere.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnWhere.Location = new System.Drawing.Point(617, 121);
+            this.btnWhere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnWhere.Location = new System.Drawing.Point(617, 112);
             this.btnWhere.Name = "btnWhere";
-            this.btnWhere.Size = new System.Drawing.Size(171, 58);
+            this.btnWhere.Size = new System.Drawing.Size(171, 49);
             this.btnWhere.TabIndex = 3;
             this.btnWhere.Text = "Where";
             this.btnWhere.UseVisualStyleBackColor = true;
@@ -80,10 +81,10 @@
             // 
             // btnOrderby
             // 
-            this.btnOrderby.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnOrderby.Location = new System.Drawing.Point(617, 185);
+            this.btnOrderby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnOrderby.Location = new System.Drawing.Point(617, 167);
             this.btnOrderby.Name = "btnOrderby";
-            this.btnOrderby.Size = new System.Drawing.Size(171, 58);
+            this.btnOrderby.Size = new System.Drawing.Size(171, 49);
             this.btnOrderby.TabIndex = 4;
             this.btnOrderby.Text = "Order By";
             this.btnOrderby.UseVisualStyleBackColor = true;
@@ -91,10 +92,10 @@
             // 
             // btnGroupby
             // 
-            this.btnGroupby.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btnGroupby.Location = new System.Drawing.Point(617, 249);
+            this.btnGroupby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnGroupby.Location = new System.Drawing.Point(617, 222);
             this.btnGroupby.Name = "btnGroupby";
-            this.btnGroupby.Size = new System.Drawing.Size(171, 58);
+            this.btnGroupby.Size = new System.Drawing.Size(171, 49);
             this.btnGroupby.TabIndex = 5;
             this.btnGroupby.Text = "Group By";
             this.btnGroupby.UseVisualStyleBackColor = true;
@@ -102,20 +103,32 @@
             // 
             // btnAggregate
             // 
-            this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnAggregate.Location = new System.Drawing.Point(617, 313);
+            this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAggregate.Location = new System.Drawing.Point(617, 277);
             this.btnAggregate.Name = "btnAggregate";
-            this.btnAggregate.Size = new System.Drawing.Size(171, 58);
+            this.btnAggregate.Size = new System.Drawing.Size(171, 49);
             this.btnAggregate.TabIndex = 6;
             this.btnAggregate.Text = "Operadores de Agregação";
             this.btnAggregate.UseVisualStyleBackColor = true;
             this.btnAggregate.Click += new System.EventHandler(this.btnAggregate_Click);
             // 
+            // btnElement
+            // 
+            this.btnElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnElement.Location = new System.Drawing.Point(617, 332);
+            this.btnElement.Name = "btnElement";
+            this.btnElement.Size = new System.Drawing.Size(171, 49);
+            this.btnElement.TabIndex = 7;
+            this.btnElement.Text = "Operadores de Elemento";
+            this.btnElement.UseVisualStyleBackColor = true;
+            this.btnElement.Click += new System.EventHandler(this.btnElement_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 466);
+            this.Controls.Add(this.btnElement);
             this.Controls.Add(this.btnAggregate);
             this.Controls.Add(this.btnGroupby);
             this.Controls.Add(this.btnOrderby);
@@ -139,6 +152,7 @@
         private System.Windows.Forms.Button btnOrderby;
         private System.Windows.Forms.Button btnGroupby;
         private System.Windows.Forms.Button btnAggregate;
+        private System.Windows.Forms.Button btnElement;
     }
 }
 
