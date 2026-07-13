@@ -95,7 +95,7 @@ namespace Base_de_Dados
             #endregion
             
             #region MySQL
-            /*
+            
             string strConnection = "server=127.0.0.1;User Id=root;password=8284";
             //string strConnection2 = "server=127.0.0.1;User Id=root;database=curso_db;password=4646";
 
@@ -122,7 +122,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
         }
 
@@ -142,7 +142,7 @@ namespace Base_de_Dados
                 SqlCeCommand command = new SqlCeCommand();
                 command.Connection = connection;
 
-                command.CommandText = "CREATE TABLE pessoas(id INT IDENTITY(1,1) PRIMARY KEY, none NVARCHAR(50), email NVARCHAR(50))";
+                command.CommandText = "CREATE TABLE pessoas(id INT IDENTITY(1,1) PRIMARY KEY, nome NVARCHAR(50), email NVARCHAR(50))";
                 command.ExecuteNonQuery();
 
                 txtResult.Text = "Tabela Sql CE criada com sucesso!";
@@ -175,7 +175,7 @@ namespace Base_de_Dados
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
 
-                command.CommandText = "CREATE TABLE pessoas(id INTEGER PRIMARY KEY AUTOINCREMENT, none NVARCHAR(50), email NVARCHAR(50))";
+                command.CommandText = "CREATE TABLE pessoas(id INTEGER PRIMARY KEY AUTOINCREMENT, nome NVARCHAR(50), email NVARCHAR(50))";
                 command.ExecuteNonQuery();
 
                 txtResult.Text = "Tabela SQLite criada com sucesso!";
@@ -195,7 +195,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
-            /*
+            
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -206,7 +206,7 @@ namespace Base_de_Dados
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = connection;
 
-                command.CommandText = "CREATE TABLE pessoas(id INT NOT NULL, none VARCHAR(50), email VARCHAR(50), PRIMARY KEY(id))";
+                command.CommandText = "CREATE TABLE pessoas(id INT NOT NULL AUTO_INCREMENT, nome VARCHAR(50), email VARCHAR(50), PRIMARY KEY(id))";
                 command.ExecuteNonQuery();
 
                 txtResult.Text = "Tabela MySQL criada com sucesso!";
@@ -222,7 +222,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
         }
 
@@ -242,7 +242,7 @@ namespace Base_de_Dados
                 SqlCeCommand command = new SqlCeCommand();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO pessoas(none, email) VALUES(@name, @email)";
+                command.CommandText = "INSERT INTO pessoas(nome, email) VALUES(@name, @email)";
 
                 command.Parameters.Clear();
 
@@ -281,7 +281,7 @@ namespace Base_de_Dados
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO pessoas(none, email) VALUES($name, $email)";
+                command.CommandText = "INSERT INTO pessoas(nome, email) VALUES($name, $email)";
 
                 command.Parameters.Clear();
 
@@ -306,7 +306,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
-            /*
+            
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -317,7 +317,7 @@ namespace Base_de_Dados
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO pessoas(none, email) VALUES(@name, @email)";
+                command.CommandText = "INSERT INTO pessoas(nome, email) VALUES(@name, @email)";
 
                 command.Parameters.Clear();
 
@@ -339,7 +339,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
         }
 
@@ -361,7 +361,7 @@ namespace Base_de_Dados
 
                 if (!String.IsNullOrEmpty(inputName.Text))
                 {
-                    query = "SELECT * FROM pessoas WHERE none LIKE '" + inputName.Text + "%'"; 
+                    query = "SELECT * FROM pessoas WHERE nome LIKE '" + inputName.Text + "%'"; 
                 }
 
                 DataTable dataTable = new DataTable();
@@ -369,7 +369,6 @@ namespace Base_de_Dados
                 connection.Open();
 
                 adapter.Fill(dataTable);
-
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -390,7 +389,7 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
@@ -406,7 +405,7 @@ namespace Base_de_Dados
 
                 if (!String.IsNullOrEmpty(inputName.Text))
                 {
-                    command.CommandText = "SELECT * FROM pessoas WHERE none LIKE '" + inputName.Text + "%'";
+                    command.CommandText = "SELECT * FROM pessoas WHERE nome LIKE '" + inputName.Text + "%'";
                 }
 
                 SQLiteDataReader reader = command.ExecuteReader();
@@ -415,7 +414,7 @@ namespace Base_de_Dados
 
                 while (reader.Read())
                 {
-                    listGrid.Rows.Add($"{reader["id"]}", $"{reader["none"]}", $"{reader["email"]}");
+                    listGrid.Rows.Add($"{reader["id"]}", $"{reader["nome"]}", $"{reader["email"]}");
                 }
 
                 reader.Close();
@@ -431,11 +430,11 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
 
             #region MySQL
-            /*
+            
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -449,7 +448,7 @@ namespace Base_de_Dados
 
                 if (!String.IsNullOrEmpty(inputName.Text))
                 {
-                    command.CommandText = "SELECT * FROM pessoas WHERE none LIKE '" + inputName.Text + "%'";
+                    command.CommandText = "SELECT * FROM pessoas WHERE nome LIKE '" + inputName.Text + "%'";
                 }
 
                 MySqlDataReader reader = command.ExecuteReader();
@@ -458,7 +457,7 @@ namespace Base_de_Dados
 
                 while (reader.Read())
                 {
-                    listGrid.Rows.Add($"{reader["id"]}", $"{reader["none"]}", $"{reader["email"]}");
+                    listGrid.Rows.Add($"{reader["id"]}", $"{reader["nome"]}", $"{reader["email"]}");
                 }
 
                 reader.Close();
@@ -474,7 +473,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
         }
 
@@ -514,58 +513,60 @@ namespace Base_de_Dados
             #endregion
 
             #region SQLite
-            
+            /*
             string database = Path.Combine(directoryPath, "DBSQLite.db");
             string strConnection = $@"Data Source = {database}; Version = 3";
 
             SQLiteConnection connection = new SQLiteConnection(strConnection);
-            // 1. Verifica se existe alguma linha ativa no grid
-            if (listGrid.CurrentRow == null)
-            {
-                MessageBox.Show("Nenhuma linha selecionada. Clique em um registro primeiro.");
-                return;
-            }
-
-            // 2. Pega o valor usando CurrentRow em vez de SelectedRows[0]
-            var valorCelula = listGrid.CurrentRow.Cells[0].Value;
-
-            // 3. Verifica se a célula não está vazia (evita o erro de valor nulo)
-            if (valorCelula == null || valorCelula == DBNull.Value)
-            {
-                MessageBox.Show("A linha selecionada está vazia.");
-                return;
-            }
-
-            // 4. Se passou pelas verificações acima, é 100% seguro converter!
-            int id = Convert.ToInt32(valorCelula);
             try
             {
                 connection.Open();
 
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-
-                //int id = (int)listGrid.SelectedRows[0].Cells[0].Value;
-                //string id = listGrid.SelectedRows[0].Cells[0].Value.ToString();
-                Debug.WriteLine(id);
-                command.CommandText = "DELETE FROM pessoas WHERE id =" + id;
+                int id = Convert.ToInt32(listGrid.SelectedRows[0].Cells[0].Value);
+                command.CommandText = "DELETE FROM pessoas WHERE id = '" + id + "'";
                 command.ExecuteNonQuery();
                 txtResult.Text = "Dados foram excluidos no SQLite";
                 command.Dispose();
-
             }
             catch (Exception ex)
             {
-                //txtResult.Text = ex.Message;
-                 Debug.WriteLine(ex.Message);
-                throw;
-
+                txtResult.Text = ex.Message;
             }
             finally
             {
                 connection.Close();
             }
-            
+            */
+            #endregion
+
+            #region MySQL
+
+            string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
+            MySqlConnection connection = new MySqlConnection(strConnection);
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = connection;
+                int id = Convert.ToInt32(listGrid.SelectedRows[0].Cells[0].Value);
+                command.CommandText = "DELETE FROM pessoas WHERE id = '" + id + "'";
+                command.ExecuteNonQuery();
+                txtResult.Text = "Dados foram excluidos no MySql";
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
             #endregion
         }
     }
