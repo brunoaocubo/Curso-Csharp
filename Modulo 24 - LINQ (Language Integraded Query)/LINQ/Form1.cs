@@ -131,5 +131,23 @@ namespace LINQ
             }
             
         }
+
+        private void btnGroupby_Click(object sender, EventArgs e)
+        {
+            listResult.Items.Clear();
+
+            var res_states = from state in list_states
+                             group state by state.Value;
+                             
+            foreach (var group in res_states)
+            {
+                listResult.Items.Add(group.Key);
+
+                foreach (var state in group)
+                {
+                    listResult.Items.Add("    " + state.Key);
+                }
+            }
+        }
     }
 }
