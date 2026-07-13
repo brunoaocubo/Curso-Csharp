@@ -214,5 +214,48 @@ namespace LINQ
             int num = query.FirstOrDefault(); //Primeiro ou valor padrão dos valores filtrados.
             listResult.Items.Add(num);
         }
+
+        private void btnLambda_Click(object sender, EventArgs e)
+        {
+            #region Lambda SELECT
+            /*
+            var linq = from name in list_names select name;
+            var linqLambda = list_names.Select(name => name);
+            listResult.Items.AddRange(linqLambda.ToArray());
+            */
+            #endregion
+
+            #region Lambda WHERE
+            /*
+            var linq2 = from name in list_names where name.StartsWith("L") select name;
+            var linq2Lambda = list_names.Where(name => name.StartsWith("L"));
+            listResult.Items.AddRange(linq2Lambda.ToArray());
+            */
+            #endregion
+
+            #region Lambda ORDER BY
+            /*
+            var linq3 = from name in list_names orderby name select name;
+            var linq3Lambda = list_names.OrderBy(name => name);
+            var linq3LambdaDescending = list_names.OrderByDescending(name => name);
+            listResult.Items.AddRange(linq3LambdaDescending.ToArray());
+            */
+            #endregion
+
+            #region Lambda GROUP BY
+            
+            var linq4 = from state in list_states group state by state.Value;
+            var linq4Lambda = list_states.GroupBy(state => state.Value);
+            foreach (var group in linq4Lambda)
+            {
+                listResult.Items.Add(group.Key);
+                foreach (var state in group)
+                {
+                    listResult.Items.Add("     " + state.Key);
+                }
+            }
+            
+            #endregion
+        }
     }
 }

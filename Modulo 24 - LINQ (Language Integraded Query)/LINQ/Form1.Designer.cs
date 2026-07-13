@@ -36,6 +36,7 @@
             this.btnGroupby = new System.Windows.Forms.Button();
             this.btnAggregate = new System.Windows.Forms.Button();
             this.btnElement = new System.Windows.Forms.Button();
+            this.btnLambda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listResult
@@ -60,7 +61,7 @@
             // btnExecute
             // 
             this.btnExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecute.Location = new System.Drawing.Point(617, 58);
+            this.btnExecute.Location = new System.Drawing.Point(617, 67);
             this.btnExecute.Name = "btnExecute";
             this.btnExecute.Size = new System.Drawing.Size(171, 48);
             this.btnExecute.TabIndex = 2;
@@ -71,7 +72,7 @@
             // btnWhere
             // 
             this.btnWhere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnWhere.Location = new System.Drawing.Point(617, 112);
+            this.btnWhere.Location = new System.Drawing.Point(617, 121);
             this.btnWhere.Name = "btnWhere";
             this.btnWhere.Size = new System.Drawing.Size(171, 49);
             this.btnWhere.TabIndex = 3;
@@ -82,7 +83,7 @@
             // btnOrderby
             // 
             this.btnOrderby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnOrderby.Location = new System.Drawing.Point(617, 167);
+            this.btnOrderby.Location = new System.Drawing.Point(617, 176);
             this.btnOrderby.Name = "btnOrderby";
             this.btnOrderby.Size = new System.Drawing.Size(171, 49);
             this.btnOrderby.TabIndex = 4;
@@ -93,7 +94,7 @@
             // btnGroupby
             // 
             this.btnGroupby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnGroupby.Location = new System.Drawing.Point(617, 222);
+            this.btnGroupby.Location = new System.Drawing.Point(617, 231);
             this.btnGroupby.Name = "btnGroupby";
             this.btnGroupby.Size = new System.Drawing.Size(171, 49);
             this.btnGroupby.TabIndex = 5;
@@ -104,7 +105,7 @@
             // btnAggregate
             // 
             this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAggregate.Location = new System.Drawing.Point(617, 277);
+            this.btnAggregate.Location = new System.Drawing.Point(617, 286);
             this.btnAggregate.Name = "btnAggregate";
             this.btnAggregate.Size = new System.Drawing.Size(171, 49);
             this.btnAggregate.TabIndex = 6;
@@ -115,7 +116,7 @@
             // btnElement
             // 
             this.btnElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnElement.Location = new System.Drawing.Point(617, 332);
+            this.btnElement.Location = new System.Drawing.Point(617, 341);
             this.btnElement.Name = "btnElement";
             this.btnElement.Size = new System.Drawing.Size(171, 49);
             this.btnElement.TabIndex = 7;
@@ -123,11 +124,23 @@
             this.btnElement.UseVisualStyleBackColor = true;
             this.btnElement.Click += new System.EventHandler(this.btnElement_Click);
             // 
+            // btnLambda
+            // 
+            this.btnLambda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLambda.Location = new System.Drawing.Point(617, 396);
+            this.btnLambda.Name = "btnLambda";
+            this.btnLambda.Size = new System.Drawing.Size(171, 49);
+            this.btnLambda.TabIndex = 8;
+            this.btnLambda.Text = "Lambda";
+            this.btnLambda.UseVisualStyleBackColor = true;
+            this.btnLambda.Click += new System.EventHandler(this.btnLambda_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 466);
+            this.Controls.Add(this.btnLambda);
             this.Controls.Add(this.btnElement);
             this.Controls.Add(this.btnAggregate);
             this.Controls.Add(this.btnGroupby);
@@ -153,6 +166,7 @@
         private System.Windows.Forms.Button btnGroupby;
         private System.Windows.Forms.Button btnAggregate;
         private System.Windows.Forms.Button btnElement;
+        private System.Windows.Forms.Button btnLambda;
     }
 }
 
