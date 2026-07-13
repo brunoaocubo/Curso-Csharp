@@ -71,6 +71,7 @@
             this.listGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.listGrid.Size = new System.Drawing.Size(525, 240);
             this.listGrid.TabIndex = 1;
+            this.listGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listGrid_CellClick);
             // 
             // id
             // 
@@ -187,6 +188,7 @@
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Editar";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // Form1
             // 

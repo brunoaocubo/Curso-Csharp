@@ -95,7 +95,7 @@ namespace Base_de_Dados
             #endregion
             
             #region MySQL
-            
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;password=8284";
             //string strConnection2 = "server=127.0.0.1;User Id=root;database=curso_db;password=4646";
 
@@ -122,7 +122,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
         }
 
@@ -195,7 +195,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
-            
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -222,14 +222,14 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {         
             #region SQL Server CE
-            /*
+            
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -264,7 +264,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
 
             #region SQLite
@@ -306,7 +306,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
-            
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -339,7 +339,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
         }
 
@@ -349,7 +349,7 @@ namespace Base_de_Dados
             listGrid.Rows.Clear();
 
             #region SQL Server CE
-            /*
+            
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -385,7 +385,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
 
             #region SQLite
@@ -434,7 +434,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
-            
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -473,7 +473,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            
+            */
             #endregion
         }
 
@@ -483,7 +483,7 @@ namespace Base_de_Dados
             //listGrid.Rows.Clear();
 
             #region SQL Server CE
-            /*
+            
             string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
             string strConnection = $@"DataSource = {database}; Password = '1234'";
 
@@ -509,7 +509,7 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-            */
+            
             #endregion
 
             #region SQLite
@@ -542,7 +542,7 @@ namespace Base_de_Dados
             #endregion
 
             #region MySQL
-
+            /*
             string strConnection = "server=127.0.0.1;User Id=root;database=csharp_db;password=8284";
             MySqlConnection connection = new MySqlConnection(strConnection);
 
@@ -566,8 +566,51 @@ namespace Base_de_Dados
             {
                 connection.Close();
             }
-
+            */
             #endregion
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            #region SQL Server CE
+            
+            string database = Path.Combine(directoryPath, "DBSQLServer.sdf");
+            string strConnection = $@"DataSource = {database}; Password = '1234'";
+            SqlCeConnection connection = new SqlCeConnection(strConnection);
+
+            string updateQuery = "UPDATE pessoas SET nome = @nome, email = @email WHERE id = @id";
+            int id = (int)listGrid.SelectedRows[0].Cells[0].Value;
+
+            try
+            {
+                connection.Open();
+
+                SqlCeCommand command = new SqlCeCommand(updateQuery, connection);
+
+                command.Parameters.AddWithValue("@nome", inputName.Text);
+                command.Parameters.AddWithValue("@email", inputEmail.Text);
+                command.Parameters.AddWithValue("@id", id);
+
+                command.ExecuteNonQuery();
+                txtResult.Text = "Dados foram alterados no SQL Server CE";
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                txtResult.Text = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
+            #endregion
+        }
+
+        private void listGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            inputName.Text = listGrid.SelectedRows[0].Cells["name"].Value.ToString();
+            inputEmail.Text = listGrid.SelectedRows[0].Cells["email"].Value.ToString();
         }
     }
 }
