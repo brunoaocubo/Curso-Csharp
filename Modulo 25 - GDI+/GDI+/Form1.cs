@@ -59,7 +59,7 @@ namespace GDI_
             #endregion
 
             #region Draw Rectangles
-
+            /*
             Pen pen1 = new Pen(Color.Black, 5);
             Pen pen2 = new Pen(Color.Blue, 5);
 
@@ -82,6 +82,22 @@ namespace GDI_
             
             //artist.FillRectangle(pencil2, rect4);
             artist.FillRectangles(pencil2, rects);
+            */
+            #endregion
+
+            #region Draw Ellipses/Circles
+            Pen pen1 = new Pen(Color.Black, 5);
+            Rectangle rect1 = new Rectangle(250, 50, 200, 200);
+            Rectangle rect2 = new Rectangle(300, 200, 200, 100);
+
+
+            //artist.DrawRectangle(pen1, rect1);
+            //artist.DrawEllipse(pen1, rect1);
+
+            Brush pencil = new SolidBrush(Color.Brown);
+
+            artist.FillEllipse(Brushes.Black, rect2);
+            artist.FillEllipse(pencil, rect1);
 
             #endregion
 
