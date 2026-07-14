@@ -154,6 +154,7 @@ namespace GDI_
             #endregion
 
             #region Draw Bezier
+            /*
             Pen pen1 = new Pen(Color.Black, 5f);
 
             Point point1 = new Point(50, 200);
@@ -175,6 +176,17 @@ namespace GDI_
             };
 
             artist.DrawBeziers(pen1, points);
+            */
+            #endregion
+
+            #region Draw Pie (Graphic)
+            Pen pen1 = new Pen(Color.Black, 5f);
+            Pen pen2 = new Pen(Color.Black, 2f);
+            Rectangle rect1 = new Rectangle(50, 50, 300, 300);
+
+            //artist.DrawPie(pen1, rect1, 270, 120);
+            artist.DrawRectangle(pen2, rect1);
+            artist.FillPie(Brushes.DarkRed, rect1, 270, 135);
             #endregion
 
             paper.Save(@"c:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
