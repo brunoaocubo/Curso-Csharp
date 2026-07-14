@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace GDI_
             picture.BackgroundImage = paper;
 
             #region Draw Lines
+            /*
             Brush pencil = new SolidBrush(Color.Red);
 
             Pen pen1 = new Pen(pencil, 5f);
@@ -53,9 +55,35 @@ namespace GDI_
 
             };
             artist.DrawLines(pen1, points);
-
+            */
             #endregion
 
+            #region Draw Rectangles
+
+            Pen pen1 = new Pen(Color.Black, 5);
+            Pen pen2 = new Pen(Color.Blue, 5);
+
+            Rectangle rect1 = new Rectangle(50, 50, 500, 200);
+            Rectangle rect2 = new Rectangle(100, 100, 500, 200);
+            Rectangle rect3 = new Rectangle(300, 0, 200, 150);
+            Rectangle rect4 = new Rectangle(650, 20, 100, 200);
+
+            Rectangle[] rects =
+            {
+                rect1, rect2, rect3, rect4, new Rectangle(200, 50, 400, 100)
+            };
+
+            //artist.DrawRectangle(pen1, 0, 0, 500, 250);
+            //artist.DrawRectangle(pen1, rect1);
+            //artist.DrawRectangles(pen2, rects);
+
+            Brush pencil1 = new SolidBrush(Color.Red);
+            Brush pencil2 = new LinearGradientBrush(rect4, Color.Red, Color.DarkSalmon, 90);
+            
+            //artist.FillRectangle(pencil2, rect4);
+            artist.FillRectangles(pencil2, rects);
+
+            #endregion
 
             paper.Save(@"c:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
