@@ -103,6 +103,7 @@ namespace GDI_
             #endregion
 
             #region Draw Polygons
+            /*
             Pen pen1 = new Pen(Color.Black, 5);
 
             Point[] points =
@@ -118,7 +119,24 @@ namespace GDI_
             
             //artist.DrawPolygon(pen1, points);
             artist.FillPolygon(pencilGradient, points);
+            */
+            #endregion
 
+            #region Draw Curves
+            Pen pen1 = new Pen(Color.Black, 5);
+
+            Point[] points =
+            {
+                new Point(200, 100),
+                new Point(300, 250),
+                new Point(400, 150),
+                new Point(200, 100),
+            };
+
+            //artist.DrawCurve(pen1, points);
+            //artist.DrawCurve(pen1, points, 3f);
+            //artist.DrawClosedCurve(pen1, points, 1.5f, FillMode.Alternate);
+            artist.FillClosedCurve(Brushes.Aqua, points, FillMode.Winding, 1.5f);
             #endregion
 
             paper.Save(@"c:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
