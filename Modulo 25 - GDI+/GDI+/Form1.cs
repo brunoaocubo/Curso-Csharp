@@ -142,6 +142,7 @@ namespace GDI_
             #endregion
 
             #region Draw Arc
+            /*
             Pen pen1 = new Pen(Color.Black, 5f);
             Pen pen2 = new Pen(Color.Black, 2f);
 
@@ -149,6 +150,31 @@ namespace GDI_
 
             //artist.DrawRectangle(pen2, rect1);
             artist.DrawArc(pen1, rect1, 0f, 250f);
+            */
+            #endregion
+
+            #region Draw Bezier
+            Pen pen1 = new Pen(Color.Black, 5f);
+
+            Point point1 = new Point(50, 200);
+            Point point2 = new Point(150, 400);
+            Point point3 = new Point(300, 50);
+            Point point4 = new Point(600, 300);
+
+            //artist.DrawBezier(pen1, point1, point2, point3, point4);
+
+            Point[] points =
+            {
+                new Point(50, 200), // Inicio
+                new Point(150, 400),
+                new Point(300, 100),
+                new Point(500, 200),// Meio
+                new Point(600, 300), 
+                new Point(700, 220),
+                new Point(750, 10), // Fim
+            };
+
+            artist.DrawBeziers(pen1, points);
             #endregion
 
             paper.Save(@"c:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
