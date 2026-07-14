@@ -180,6 +180,7 @@ namespace GDI_
             #endregion
 
             #region Draw Pie (Graphic)
+            /*
             Pen pen1 = new Pen(Color.Black, 5f);
             Pen pen2 = new Pen(Color.Black, 2f);
             Rectangle rect1 = new Rectangle(50, 50, 300, 300);
@@ -187,8 +188,21 @@ namespace GDI_
             //artist.DrawPie(pen1, rect1, 270, 120);
             artist.DrawRectangle(pen2, rect1);
             artist.FillPie(Brushes.DarkRed, rect1, 270, 135);
+            */
             #endregion
 
+            #region Draw Path (Graphic)
+            Pen pen1 = new Pen(Color.Black, 5);
+            GraphicsPath graphicsPath = new GraphicsPath(FillMode.Alternate);
+
+            graphicsPath.AddRectangle(new RectangleF(10, 10, 100, 150));
+            graphicsPath.AddRectangle(new RectangleF(160, 10, 100, 90));
+            graphicsPath.AddRectangle(new RectangleF(320, 10, 100, 150));
+
+            artist.DrawPath(pen1, graphicsPath);
+            artist.FillPath(Brushes.DarkBlue, graphicsPath);
+
+            #endregion
             paper.Save(@"c:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
     }
