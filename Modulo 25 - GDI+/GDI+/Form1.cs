@@ -123,6 +123,7 @@ namespace GDI_
             #endregion
 
             #region Draw Curves
+            /*
             Pen pen1 = new Pen(Color.Black, 5);
 
             Point[] points =
@@ -137,6 +138,17 @@ namespace GDI_
             //artist.DrawCurve(pen1, points, 3f);
             //artist.DrawClosedCurve(pen1, points, 1.5f, FillMode.Alternate);
             artist.FillClosedCurve(Brushes.Aqua, points, FillMode.Winding, 1.5f);
+            */
+            #endregion
+
+            #region Draw Arc
+            Pen pen1 = new Pen(Color.Black, 5f);
+            Pen pen2 = new Pen(Color.Black, 2f);
+
+            Rectangle rect1 = new Rectangle(100, 50, 300, 200);
+
+            //artist.DrawRectangle(pen2, rect1);
+            artist.DrawArc(pen1, rect1, 0f, 250f);
             #endregion
 
             paper.Save(@"c:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
