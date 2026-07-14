@@ -86,6 +86,7 @@ namespace GDI_
             #endregion
 
             #region Draw Ellipses/Circles
+            /*
             Pen pen1 = new Pen(Color.Black, 5);
             Rectangle rect1 = new Rectangle(250, 50, 200, 200);
             Rectangle rect2 = new Rectangle(300, 200, 200, 100);
@@ -98,6 +99,25 @@ namespace GDI_
 
             artist.FillEllipse(Brushes.Black, rect2);
             artist.FillEllipse(pencil, rect1);
+            */
+            #endregion
+
+            #region Draw Polygons
+            Pen pen1 = new Pen(Color.Black, 5);
+
+            Point[] points =
+            {
+                new Point(100, 100),
+                new Point(200, 300),
+                new Point(300, 300),
+                new Point(400, 100),
+            };
+
+            Brush pencil = new SolidBrush(Color.DarkOliveGreen);
+            Brush pencilGradient = new LinearGradientBrush(new Rectangle(100, 100, 200, 200), Color.Red, Color.Yellow, 90); 
+            
+            //artist.DrawPolygon(pen1, points);
+            artist.FillPolygon(pencilGradient, points);
 
             #endregion
 
