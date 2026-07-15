@@ -19,10 +19,14 @@ namespace Impressão
         int width;
         int height;
         int num_lines;
+        int num_pages;
+        int page;
 
         public Form1()
         {
             InitializeComponent();
+            page = 0;
+            num_pages = 0;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -32,10 +36,15 @@ namespace Impressão
             width = printDocument1.DefaultPageSettings.Bounds.Width;
             height = printDocument1.DefaultPageSettings.Bounds.Height;
             num_lines = 0;
+
+
             printDialog1.Document = printDocument1;
 
-            if(printDialog1.ShowDialog() == DialogResult.OK)
+            if (printDialog1.ShowDialog() == DialogResult.OK)
             {
+                width = printDocument1.DefaultPageSettings.Bounds.Width;
+                height = printDocument1.DefaultPageSettings.Bounds.Height;
+                printDocument1.PrinterSettings = printDialog1.PrinterSettings;
                 printDocument1.Print();
             }
         }
@@ -75,6 +84,7 @@ namespace Impressão
             #endregion
 
             #region Parte 3 - Impressão em Lote
+            
             List<string> lines = new List<string>(){
                 "1.Lorem Ipsum is simply dummy text of the printing.",
                 "2.Lorem Ipsum is simply dummy text of the printing.",
@@ -148,7 +158,7 @@ namespace Impressão
             StringFormat titleAlign = new StringFormat();
             titleAlign.Alignment = StringAlignment.Center;
             titleAlign.LineAlignment = StringAlignment.Center;
-
+            
             while (num_lines < lines.Count)
             {
                 if(num_lines == 0)
@@ -165,10 +175,51 @@ namespace Impressão
                 {
                     y = 50;
                     e.HasMorePages = true;
+                    num_pages++;
                     break;
                 }
             }
+            
             #endregion
+        }
+
+        private void btnVisualizer_Click(object sender, EventArgs e)
+        {
+            x = 50;
+            y = 50;
+            width = printDocument1.DefaultPageSettings.Bounds.Width;
+            height = printDocument1.DefaultPageSettings.Bounds.Height;
+            num_lines = 0;
+
+            printPreviewControl1.Document = printDocument1;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if(page > 0)
+            {
+                printPreviewControl1.StartPage = --page;
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (page < num_pages)
+            {
+                printPreviewControl1.StartPage = ++page;
+            }
+        }
+
+        private void btnVisualizerStandard_Click(object sender, EventArgs e)
+        {
+            x = 50;
+            y = 50;
+            width = printDocument1.DefaultPageSettings.Bounds.Width;
+            height = printDocument1.DefaultPageSettings.Bounds.Height;
+            num_lines = 0;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+
         }
     }
 }
