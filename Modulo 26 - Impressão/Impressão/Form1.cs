@@ -13,6 +13,13 @@ namespace Impressão
 {
     public partial class Form1 : Form
     {
+        // Medidas da página
+        int x;
+        int y;
+        int width;
+        int height;
+        int num_lines;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +27,11 @@ namespace Impressão
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            x = 50;
+            y = 50;
+            width = printDocument1.DefaultPageSettings.Bounds.Width;
+            height = printDocument1.DefaultPageSettings.Bounds.Height;
+            num_lines = 0;
             printDialog1.Document = printDocument1;
 
             if(printDialog1.ShowDialog() == DialogResult.OK)
@@ -43,20 +55,14 @@ namespace Impressão
             #endregion
 
             #region Parte 2 - Formatando o documento
-            // Medidas da página
-            int x = printDocument1.DefaultPageSettings.Bounds.X;
-            int y = printDocument1.DefaultPageSettings.Bounds.Y;
-            int width = printDocument1.DefaultPageSettings.Bounds.Width;
-            int height = printDocument1.DefaultPageSettings.Bounds.Height;
-
-
+            /*
             // Título
             string title = "Título Principal";
             Font fontTitle = new Font("Times New Roman", 30, FontStyle.Underline, GraphicsUnit.Point);
             StringFormat titleAlign = new StringFormat();
             titleAlign.Alignment = StringAlignment.Center;
             titleAlign.LineAlignment = StringAlignment.Center;
-            Rectangle areaTitle = new Rectangle(x + 50, y + 100, width - 100, 100);
+            Rectangle areaTitle = new Rectangle(x, y, width - 100, 100);
             e.Graphics.DrawString(title, fontTitle, Brushes.Brown, areaTitle, titleAlign);
 
 
@@ -65,8 +71,104 @@ namespace Impressão
             Font fontText = new Font("Arial", 13, GraphicsUnit.Point);
             Rectangle areaText = new Rectangle(x + 50, y + 200, width - 100, height - 400);
             e.Graphics.DrawString(text, fontText, Brushes.Black, areaText);
+            */
             #endregion
 
+            #region Parte 3 - Impressão em Lote
+            List<string> lines = new List<string>(){
+                "1.Lorem Ipsum is simply dummy text of the printing.",
+                "2.Lorem Ipsum is simply dummy text of the printing.",
+                "3.Lorem Ipsum is simply dummy text of the printing.",
+                "4.Lorem Ipsum is simply dummy text of the printing.",
+                "5.Lorem Ipsum is simply dummy text of the printing.",
+                "6.Lorem Ipsum is simply dummy text of the printing.",
+                "7.Lorem Ipsum is simply dummy text of the printing.",
+                "8.Lorem Ipsum is simply dummy text of the printing.",
+                "9.Lorem Ipsum is simply dummy text of the printing.",
+                "10.Lorem Ipsum is simply dummy text of the printing.",
+                "11.Lorem Ipsum is simply dummy text of the printing.",
+                "12.Lorem Ipsum is simply dummy text of the printing.",
+                "13.Lorem Ipsum is simply dummy text of the printing.",
+                "14.Lorem Ipsum is simply dummy text of the printing.",
+                "15.Lorem Ipsum is simply dummy text of the printing.",
+                "16.Lorem Ipsum is simply dummy text of the printing.",
+                "17.Lorem Ipsum is simply dummy text of the printing.",
+                "18.Lorem Ipsum is simply dummy text of the printing.",
+                "19.Lorem Ipsum is simply dummy text of the printing.",
+                "20.Lorem Ipsum is simply dummy text of the printing.",
+                "21.Lorem Ipsum is simply dummy text of the printing.",
+                "22.Lorem Ipsum is simply dummy text of the printing.",
+                "23.Lorem Ipsum is simply dummy text of the printing.",
+                "24.Lorem Ipsum is simply dummy text of the printing.",
+                "25.Lorem Ipsum is simply dummy text of the printing.",
+                "26.Lorem Ipsum is simply dummy text of the printing.",
+                "27.Lorem Ipsum is simply dummy text of the printing.",
+                "28.Lorem Ipsum is simply dummy text of the printing.",
+                "29.Lorem Ipsum is simply dummy text of the printing.",
+                "30.Lorem Ipsum is simply dummy text of the printing.",
+                "31.Lorem Ipsum is simply dummy text of the printing.",
+                "32.Lorem Ipsum is simply dummy text of the printing.",
+                "1.Lorem Ipsum is simply dummy text of the printing.",
+                "2.Lorem Ipsum is simply dummy text of the printing.",
+                "3.Lorem Ipsum is simply dummy text of the printing.",
+                "4.Lorem Ipsum is simply dummy text of the printing.",
+                "5.Lorem Ipsum is simply dummy text of the printing.",
+                "6.Lorem Ipsum is simply dummy text of the printing.",
+                "7.Lorem Ipsum is simply dummy text of the printing.",
+                "8.Lorem Ipsum is simply dummy text of the printing.",
+                "9.Lorem Ipsum is simply dummy text of the printing.",
+                "10.Lorem Ipsum is simply dummy text of the printing.",
+                "11.Lorem Ipsum is simply dummy text of the printing.",
+                "12.Lorem Ipsum is simply dummy text of the printing.",
+                "13.Lorem Ipsum is simply dummy text of the printing.",
+                "14.Lorem Ipsum is simply dummy text of the printing.",
+                "15.Lorem Ipsum is simply dummy text of the printing.",
+                "16.Lorem Ipsum is simply dummy text of the printing.",
+                "17.Lorem Ipsum is simply dummy text of the printing.",
+                "18.Lorem Ipsum is simply dummy text of the printing.",
+                "19.Lorem Ipsum is simply dummy text of the printing.",
+                "20.Lorem Ipsum is simply dummy text of the printing.",
+                "21.Lorem Ipsum is simply dummy text of the printing.",
+                "22.Lorem Ipsum is simply dummy text of the printing.",
+                "23.Lorem Ipsum is simply dummy text of the printing.",
+                "24.Lorem Ipsum is simply dummy text of the printing.",
+                "25.Lorem Ipsum is simply dummy text of the printing.",
+                "26.Lorem Ipsum is simply dummy text of the printing.",
+                "27.Lorem Ipsum is simply dummy text of the printing.",
+                "28.Lorem Ipsum is simply dummy text of the printing.",
+                "29.Lorem Ipsum is simply dummy text of the printing.",
+                "30.Lorem Ipsum is simply dummy text of the printing.",
+                "31.Lorem Ipsum is simply dummy text of the printing.",
+            };
+
+            Font fontText = new Font("Arial", 18, GraphicsUnit.Point);
+            string title = "Título Principal";
+            Font fontTitle = new Font("Times New Roman", 30, FontStyle.Underline, GraphicsUnit.Point);
+            Rectangle areaTitle = new Rectangle(x, y, width - 100, 100);
+            StringFormat titleAlign = new StringFormat();
+            titleAlign.Alignment = StringAlignment.Center;
+            titleAlign.LineAlignment = StringAlignment.Center;
+
+            while (num_lines < lines.Count)
+            {
+                if(num_lines == 0)
+                {
+                    e.Graphics.DrawString(title, fontTitle, Brushes.Brown, areaTitle, titleAlign);
+                    y += 150;
+                }
+
+                e.Graphics.DrawString(lines[num_lines], fontText, Brushes.Black, new Point(x, y));
+                y += 30;
+                num_lines++;
+
+                if(y >= height - 50)
+                {
+                    y = 50;
+                    e.HasMorePages = true;
+                    break;
+                }
+            }
+            #endregion
         }
     }
 }
