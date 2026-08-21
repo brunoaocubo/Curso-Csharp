@@ -206,7 +206,7 @@ namespace GDI_
             #endregion
 
             #region Draw Strings
-
+            /*
             string text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.";
 
             Font font = new Font("Times New Roman", 15, FontStyle.Bold, GraphicsUnit.Point);
@@ -224,9 +224,19 @@ namespace GDI_
             artist.DrawRectangle(new Pen(Color.Red), rect);
             artist.DrawString("Título da Página", font, pencil, rect2, aligner);
             artist.DrawString(text, font, pencil, rect, aligner);
-
+            */
             #endregion
-            //paper.Save(@"c:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            #region Draw Image
+            Image imgOrigin = Image.FromFile(Application.StartupPath + @"C:\Users\bruno.carvalho\Desktop\Teste\paisagem.jpg");
+            Rectangle origem1 = new Rectangle(0, 0, imgOrigin.Width, imgOrigin.Height);
+            Rectangle target = new Rectangle(0, 0, picture.Width, picture.Height);
+
+            artist.DrawImage(imgOrigin, target, origem1, GraphicsUnit.Pixel);
+
+            picture.BackgroundImage = paper;
+            #endregion
+            paper.Save(@"C:\Users\bruno.carvalho\Desktop\Teste\paper.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
     }
 }
